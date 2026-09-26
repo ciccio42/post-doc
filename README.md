@@ -7,23 +7,26 @@ learning) and on the currently active research question, **RQ1**: baseline
 robustness results (RQ1-1 task-level, RQ1-2 spatial-level) and the proposed
 **VC-VLA** architecture, with both simulated and real-world results.
 
-Built with the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template)
-(Bulma CSS, no build step) and adapted into a multi-section report layout.
+Built with the [Clarity template](https://github.com/lorenmt/clarity-template) by Shikun Liu
+(static HTML, no build step; CC BY-SA 4.0, see `LICENSE-clarity`).
 
 ## Structure
 
 ```
 index.html              # all page content
+assets/                  # Clarity: stylesheet, Charter font, Font Awesome, scripts
+  scripts/navbar.js      # floating table of contents (patched to list h2 across containers)
+clarity/clarity.css      # Clarity grid helpers
 static/
-  css/                   # Bulma, Bulma-carousel, and custom.css (page-specific styles)
-  js/                    # Bulma-carousel and main.js (nav, scroll-spy, scroll-to-top)
+  css/report.css         # report-specific styles (tables, figure rows, callouts)
+  video/                 # SeeDo real-robot video
   images/
     main-project/        # figures for REASONED (taxonomy, baselines, VC-VLA, real-world eval)
     misc/                # author photo, favicon
 ```
 
-Font Awesome icons are loaded from a CDN (cdnjs); everything else is self-hosted,
-so the page works fully offline except for icons and the Google Font (Inter).
+Font Awesome and the Charter font are self-hosted; Poppins/Fira Code (Google Fonts)
+and MathJax (cdnjs) are loaded from CDNs.
 
 ## Preview locally
 
@@ -42,7 +45,7 @@ python -m http.server 8000
 
 ## Updating content
 
-All content lives in `index.html`, organized into `<section>` blocks with ids
-matching the top navigation (`#overview`, `#main-project`, `#rq1-1`, `#rq1-2`,
-`#proposal`, `#seedo`, `#dissemination`, `#about`). Section-specific visual styles are in
-`static/css/custom.css`.
+All content lives in `index.html`, split into five chapters: 1. Problem and Taxonomy,
+2. Baseline Evaluation (RQ1-1, RQ1-2), 3. Proposal (VC-VLA), 4. Simulated Evaluation,
+5. Real-World Evaluation. Each `h1` / `h2` inside a `container blog main` block becomes an
+entry in the floating table of contents. Figures go in `container blog ... gray` blocks.
