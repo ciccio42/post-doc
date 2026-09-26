@@ -1,295 +1,316 @@
 <!DOCTYPE html>
-<html lang="en-GB">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activity Report: Francesco Rosa | REASONED</title>
-    <meta name="description" content="Post-doctoral activity report of Francesco Rosa (DIEM, University of Salerno) on REASONED: Robots lEarn tASks ObserviNg vidEo Demonstration. Problem and taxonomy, baseline evaluation (RQ1-1, RQ1-2), the proposed VC-VLA architecture, simulated and real-world evaluation.">
-    <meta name="author" content="Francesco Rosa">
-    <meta name="robots" content="all">
-    <meta content="en_EN" property="og:locale">
-    <meta content="website" property="og:type">
-    <meta content="Activity Report: REASONED" property="og:title">
-    <meta content="Human-video-conditioned multi-task imitation learning" property="og:description">
+<html lang="en">
 
-    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="clarity/clarity.css" />
-    <link rel="stylesheet" type="text/css" media="all" href="static/css/report.css" />
-    <link href="assets/fontawesome-free-7.2.0-web/css/all.min.css" rel="stylesheet">
-    <script src="assets/scripts/navbar.js"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            "HTML-CSS": {
-              scale: 95,
-              fonts: ["Gyre-Pagella"],
-              imageFont: null,
-              undefinedFamily: "'Arial Unicode MS', cmbright"
-            },
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-              }
-          });
-    </script>
-    <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Activity Report: Francesco Rosa | REASONED</title>
+  <meta name="description"
+    content="Post-doctoral activity report of Francesco Rosa (DIEM, University of Salerno) on REASONED: Robots lEarn tASks ObserviNg vidEo Demonstration. Problem and taxonomy, baseline evaluation (RQ1-1, RQ1-2), the proposed VC-VLA architecture, simulated and real-world evaluation.">
+  <meta name="author" content="Francesco Rosa">
+  <meta name="theme-color" content="#0f2540">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <link rel="stylesheet" href="static/css/custom.css">
 </head>
 
 <body>
-    <!-- ======================= Title Page ======================= -->
-    <div class="container blog" id="first-content" style="background-color: #E0E4E6;">
-        <div class="blog-title">
-            <div class="blog-intro">
-                <div>
-                    <h1 class="title">REASONED: Robots lEarn tASks ObserviNg vidEo Demonstration</h1>
-                    <p class="author">Activity Report · First six-month period<br>
-                        Francesco Rosa, Ph.D., Post-Doctoral Researcher · Supervisor: Prof. Mario Vento</p>
-                    <p class="abstract">
-                        This report documents the research activity carried out during the first six-month period
-                        of the Research Grant. It focuses on human-video-conditioned multi-task imitation learning
-                        and, within it, on the currently active research question, <b>RQ1</b>: the robustness of
-                        human-video-conditioned manipulation policies to novel tasks, both as new combinations of
-                        skills and objects (RQ1-1) and as new spatial configurations of known objects (RQ1-2).
-                    </p>
-                </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-                <div class="info">
-                    <div>
-                        <p>DIEM, Università degli Studi di Salerno · Group 09/IINF-05 · Last updated 26 September 2026</p>
-                        <a href="https://github.com/ciccio42" class="button icon" style="background-color: rgba(255, 255, 255, 0.25); margin-bottom: 0;">GitHub <i class="fa-brands fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="blog-cover">
-                <img class="foreground" src="static/images/main-project/video-conditioned-vla.jpg" alt="VC-VLA overview">
-                <img class="background" src="static/images/main-project/video-conditioned-vla.jpg" alt="">
-            </div>
-        </div>
+  <nav class="site-nav" aria-label="Section navigation">
+    <div class="nav-inner">
+      <a class="brand" href="#top">F. Rosa <span>·</span> Activity Report</a>
+      <button class="nav-burger" aria-label="Toggle navigation" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="#problem">1. Problem &amp; Taxonomy</a>
+        <a href="#baselines">2. Baselines</a>
+        <a href="#proposal">3. Proposal</a>
+        <a href="#simulation">4. Simulation</a>
+        <a href="#real-world">5. Real World</a>
+      </div>
     </div>
+  </nav>
 
+  <main id="main-content">
+    <div id="top"></div>
 
-    <!-- ======================= 1. Problem and Taxonomy ======================= -->
-    <div class="container blog main first" id="blog-main">
-        <h1>1. Problem and Taxonomy</h1>
-        <p class="text">
+    <!-- ============ HERO ============ -->
+    <section class="hero-report">
+      <div class="hero-inner">
+        <span class="hero-kicker"><i class="fas fa-flask"></i>&nbsp; Post-Doc Activity Report · First six-month period</span>
+        <h1 class="hero-title">Activity Report</h1>
+        <p class="hero-project-title">
+          <span class="acronym">REASONED</span>: Robots lEarn tASks ObserviNg vidEo Demonstration
+        </p>
+        <p class="hero-meta"><strong>Francesco Rosa</strong>, Ph.D., Post-Doctoral Researcher</p>
+        <p class="hero-meta">Supervisor: <strong>Prof. Mario Vento</strong></p>
+        <p class="hero-meta">Dipartimento di Ingegneria dell'Informazione ed Elettrica e Matematica Applicata (DIEM),
+          Università degli Studi di Salerno</p>
+        <p class="hero-meta">Scientific-Disciplinary Group 09/IINF-05 · Last updated 26 September 2026</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#baselines"><i class="fas fa-chart-bar"></i> Baseline results</a>
+          <a class="btn btn-ghost" href="#proposal"><i class="fas fa-lightbulb"></i> Proposed architecture</a>
+          <a class="btn btn-ghost" href="https://github.com/ciccio42" target="_blank" rel="noopener"><i
+              class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 1. PROBLEM AND TAXONOMY ============ -->
+    <section class="section-shell" id="problem">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">1 · Problem and Taxonomy</p>
+          <h2 class="section-title">Human-Video-Conditioned Multi-Task Imitation Learning</h2>
+          <p class="section-lead">
             A fundamental goal in robotics is building autonomous systems that can perform multiple manipulation
-            tasks in flexible, dynamic environments. <b>Human-Video Conditioning</b> lets a robot learn a new task
-            simply by watching a human demonstrator perform it. A video is a more direct and intuitive form of task
-            specification than a natural-language instruction, since it encodes not only <em>what</em> has to be done
-            but also <em>how</em>. The central challenge is that the human demonstration cannot be transferred to the
-            robot directly: demonstrator and robot may differ in embodiment, object layout, viewpoint, or environment.
-        </p>
-
-        <h2>Problem formulation</h2>
-        <p class="text">
-            The robot policy maps its current observation, its proprioceptive state, and a video demonstration
-            provided by a human demonstrator to a robot action:
-            $$\pi_{\theta} \colon \mathcal{O}^{r} \times \mathcal{S}^{r} \times \mathcal{C}^{d} \rightarrow \mathcal{A}^{r},
-            \qquad a^{r}_{t} = \pi_{\theta}(o^{r}_{t}, s^{r}_{t}, c_i).$$
-            This work addresses the most general case, in which the demonstration
-            $c_i = [o^{d}_{0}, \ldots, o^{d}_{T'}]$ is an unstructured human video, with no action labels,
-            segmentation, or kinematic alignment between demonstrator and robot. The policy must therefore infer the
-            task from the video, identify the task-relevant elements, ground them in the robot's scene, and generate
-            suitable actions for its own embodiment.
-        </p>
+            tasks in flexible, dynamic environments. <strong>Human-Video Conditioning</strong> lets a robot learn a
+            new task simply by watching a human demonstrator perform it. A video is a more direct and intuitive form
+            of task specification than a natural-language instruction, since it encodes not only <em>what</em> has to
+            be done but also <em>how</em>. The central challenge is that the human demonstration cannot be
+            transferred to the robot directly: demonstrator and robot may differ in embodiment, object layout,
+            viewpoint, or environment.
+          </p>
+        </div>
 
         <div class="callout">
-            <p class="text"><b>RQ1 · current focus.</b> How can we develop a system that is robust to novel tasks:
-                new combinations of skills and objects (<b>RQ1-1</b>), and new spatial configurations with known
-                objects (<b>RQ1-2</b>)? RQ2 (demonstrator domain shift) and RQ3 (agent domain shift) are planned for
-                the following reporting periods.</p>
+          <p class="eyebrow">Problem formulation</p>
+          <div class="formula-katex formula-display"
+            data-tex="\pi_{\theta} \colon \mathcal{O}^{r} \times \mathcal{S}^{r} \times \mathcal{C}^{d} \rightarrow \mathcal{A}^{r}, \qquad a^{r}_{t} = \pi_{\theta}(o^{r}_{t}, s^{r}_{t}, c_i)">
+            π<sub>θ</sub>: O<sup>r</sup> × S<sup>r</sup> × C<sup>d</sup> → A<sup>r</sup>
+          </div>
+          <p>
+            The robot policy maps its current observation, its proprioceptive state, and a video demonstration
+            provided by a human demonstrator to a robot action. This work addresses the most general case, in which
+            the demonstration is an unstructured human video, with no action labels, segmentation, or kinematic
+            alignment between demonstrator and robot. The policy must infer the task from the video, identify the
+            task-relevant elements, ground them in the robot's scene, and generate suitable actions for its own
+            embodiment.
+          </p>
         </div>
 
-        <h2>Taxonomy of methods</h2>
-        <p class="text">
-            The state of the art is organized by the information extracted from the human video and used to
-            condition the policy. Hand-tracking methods exploit the motion of the human hand; object-centric methods
-            focus on the manipulated object; end-to-end methods map observations and demonstrations directly to
-            actions. End-to-end methods have since grown into Vision-Language-Action models (VLAs) and World-Action
-            Models (WAMs), which are included as language- or image-text-conditioned references because they sit at one
-            of the most active frontiers of Physical AI.
-        </p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <div class="fig-row cols-3">
-            <div>
-                <div class="thumb"><img src="static/images/main-project/mimicplay_architecture.png" alt="Mimic-Play architecture"></div>
-                <p class="caption"><span class="tag video">Video-conditioned</span><br><b>Hand-tracking.</b>
-                    Estimates the human hand motion and uses it for planning or supervision. In Mimic-Play, a latent
-                    planner encodes the hand trajectory into a task-level plan that conditions a low-level policy.
-                    Intuitive, but it must bridge the human–robot embodiment and environment mismatch.</p>
-            </div>
-            <div>
-                <div class="thumb"><img src="static/images/main-project/cod.png" alt="COD-Policy architecture"></div>
-                <p class="caption"><span class="tag video">Video-conditioned</span><br><b>Object-centric.</b>
-                    Identifies the object involved in the task instead of reproducing the human motion: a
-                    Conditioned-Object Detector localizes the manipulated item and its destination from the video.
-                    Less dependent on embodiment, but sensitive to changes in object appearance or layout.</p>
-            </div>
-            <div>
-                <div class="thumb"><img src="static/images/main-project/osvi-awda.png" alt="OSVI-AWDA architecture"></div>
-                <p class="caption"><span class="tag video">Video-conditioned</span><br><b>End-to-end.</b>
-                    Learns a direct mapping from observation and demonstration to action. OSVI-AWDA predicts attributed
-                    waypoints executed through hand-crafted motor primitives. Minimal engineering, but a harder
-                    learning problem with limited interpretability.</p>
-            </div>
-            <div>
-                <div class="thumb"><img src="static/images/main-project/tiny_vla.png" alt="TinyVLA-H architecture"></div>
-                <p class="caption"><span class="tag">Language-conditioned</span><br><b>Vision-Language-Action.</b>
-                    A pretrained vision-language backbone extended with an action head (OpenVLA-OFT, TinyVLA-H,
-                    MolmoAct2). These models inherit the semantics and robustness of large-scale pretraining, but need
-                    large datasets and are hard to fine-tune efficiently.</p>
-            </div>
-            <div>
-                <div class="thumb"><img src="static/images/main-project/vla_jepa.png" alt="VLA-JEPA architecture"></div>
-                <p class="caption"><span class="tag">Language-conditioned</span><br><b>World-Action Model.</b>
-                    A latent dynamics encoder pretrained on large-scale, action-free video (including human
-                    demonstrations) to predict future states; the learned world dynamics then condition a lightweight
-                    action head (VLA-JEPA, Mimic-Video).</p>
-            </div>
-            <div>
-                <div class="thumb"><img src="static/images/main-project/interleave_vla.png" alt="Interleave-VLA overview"></div>
-                <p class="caption"><span class="tag">Image-text-conditioned</span><br><b>Interleave-VLA.</b>
-                    Extends a pretrained VLA ($\pi_0$) to interleaved image-text instructions, where objects are
-                    referenced by cropped images (“Put [image1] into [image2]”). Grounding objects in images mitigates
-                    the attentional hallucinations of text-only VLAs.</p>
-            </div>
+        <div class="callout">
+          <p class="eyebrow">RQ1 · current focus</p>
+          <p>How can we develop a system that is robust to novel tasks: new combinations of skills and objects
+            (<strong>RQ1-1</strong>), and new spatial configurations with known objects (<strong>RQ1-2</strong>)?
+            RQ2 (demonstrator domain shift) and RQ3 (agent domain shift) are planned for the following reporting
+            periods.</p>
         </div>
-    </div>
 
-    <div class="container blog main">
-        <h2>Evaluation scenario</h2>
-        <p class="text">
-            All methods are evaluated on a simulated pick-and-place scenario with 16 task variations, each defined
-            by a combination of object color and target bin: the robot must pick the colored object and place it into
-            the bin shown in the human video demonstration. Five metrics are reported: <b>Reach</b> (end-effector
-            reaches the correct object), <b>Pick</b> (correct object grasped), <b>Success</b> (object placed in the
-            correct bin), <b>Success on Wrong Object</b> (W.O., the task is completed on an incorrect object), and
-            <b>Success on Wrong Bin</b> (W.B., correct object placed in an incorrect bin).
+        <h3 class="sub-head">Taxonomy of methods</h3>
+        <p class="section-lead">
+          The state of the art is organized by the information extracted from the human video and used to condition
+          the policy. Hand-tracking methods exploit the motion of the human hand; object-centric methods focus on the
+          manipulated object; end-to-end methods map observations and demonstrations directly to actions. End-to-end
+          methods have since grown into Vision-Language-Action models (VLAs) and World-Action Models (WAMs), included
+          as language- or image-text-conditioned references because they sit at one of the most active frontiers of
+          Physical AI.
         </p>
-        <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario" style="width: 80%; display: block; margin: 0 auto;">
-        <p class="caption inline center">The simulated evaluation scenario: four colored objects and four fixed bins.</p>
-    </div>
 
+        <div class="figure-grid cols-3">
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/mimicplay_architecture.png" alt="Mimic-Play architecture" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag is-video">Video-conditioned</span>
+              <p class="figure-title">Hand-tracking</p>
+              <p class="figure-desc">Estimates the human hand motion and uses it for planning or supervision. In
+                Mimic-Play, a latent planner encodes the hand trajectory into a task-level plan that conditions a
+                low-level policy. Intuitive, but it must bridge the human–robot embodiment and environment mismatch.</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/cod.png" alt="COD-Policy architecture" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag is-video">Video-conditioned</span>
+              <p class="figure-title">Object-centric</p>
+              <p class="figure-desc">Identifies the object involved in the task instead of reproducing the human
+                motion: a Conditioned-Object Detector localizes the manipulated item and its destination from the
+                video. Less dependent on embodiment, but sensitive to changes in object appearance or layout.</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/osvi-awda.png" alt="OSVI-AWDA architecture" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag is-video">Video-conditioned</span>
+              <p class="figure-title">End-to-end</p>
+              <p class="figure-desc">Learns a direct mapping from observation and demonstration to action. OSVI-AWDA
+                predicts attributed waypoints executed through hand-crafted motor primitives. Minimal engineering, but
+                a harder learning problem with limited interpretability.</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/tiny_vla.png" alt="TinyVLA-H architecture" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag">Language-conditioned</span>
+              <p class="figure-title">Vision-Language-Action</p>
+              <p class="figure-desc">A pretrained vision-language backbone extended with an action head (OpenVLA-OFT,
+                TinyVLA-H, MolmoAct2). These models inherit the semantics and robustness of large-scale pretraining,
+                but need large datasets and are hard to fine-tune efficiently.</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/vla_jepa.png" alt="VLA-JEPA architecture" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag">Language-conditioned</span>
+              <p class="figure-title">World-Action Model</p>
+              <p class="figure-desc">A latent dynamics encoder pretrained on large-scale, action-free video (including
+                human demonstrations) to predict future states; the learned world dynamics then condition a
+                lightweight action head (VLA-JEPA, Mimic-Video).</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="thumb"><img src="static/images/main-project/interleave_vla.png" alt="Interleave-VLA overview" loading="lazy"></div>
+            <div class="figure-cap">
+              <span class="figure-tag">Image-text-conditioned</span>
+              <p class="figure-title">Interleave-VLA</p>
+              <p class="figure-desc">Extends a pretrained VLA (π<sub>0</sub>) to interleaved image-text
+                instructions, where objects are referenced by cropped images (“Put [image1] into [image2]”).
+                Grounding objects in images mitigates the attentional hallucinations of text-only VLAs.</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- ======================= 2. Baseline Evaluation ======================= -->
-    <div class="container blog main">
-        <h1>2. Baseline Evaluation</h1>
-        <p class="text">
+        <h3 class="sub-head">Evaluation scenario</h3>
+        <p class="section-lead">
+          All methods are evaluated on a simulated pick-and-place scenario with 16 task variations, each defined by a
+          combination of object color and target bin: the robot must pick the colored object and place it into the
+          bin shown in the human video demonstration. Five metrics are reported: <strong>Reach</strong> (end-effector
+          reaches the correct object), <strong>Pick</strong> (correct object grasped), <strong>Success</strong>
+          (object placed in the correct bin), <strong>Success on Wrong Object</strong> (W.O., the task is completed on
+          an incorrect object), and <strong>Success on Wrong Bin</strong> (W.B., correct object placed in an
+          incorrect bin).
+        </p>
+        <div class="figure-card is-centered">
+          <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario" loading="lazy">
+          <p class="figure-cap">The simulated evaluation scenario: four colored objects and four fixed bins.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============ 2. BASELINE EVALUATION ============ -->
+    <section class="section-shell alt" id="baselines">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">2 · Baseline Evaluation</p>
+          <h2 class="section-title">Baselines on the standard scenario and on RQ1</h2>
+          <p class="section-lead">
             Representative baselines from each family are first compared on the standard, in-distribution scenario,
             and then evaluated on the two RQ1 robustness axes: task-level (RQ1-1) and spatial-level (RQ1-2).
-        </p>
+          </p>
+        </div>
 
-        <h2>In-distribution comparison</h2>
-        <p class="text">
-            <b>Hand-tracking baseline.</b> Mimic-Play was trained under three increasingly challenging settings:
-            a <em>fixed shared region</em> (demonstrator and robot share the spawn region, objects always in the same
-            place), a <em>variable shared region</em> (objects in any of four locations), and <em>different
-            regions</em> (demonstrator and robot operate from different spawn regions).
+        <h3 class="sub-head">In-distribution comparison</h3>
+        <p class="section-lead">
+          <strong>Hand-tracking baseline.</strong> Mimic-Play was trained under three increasingly challenging
+          settings: a <em>fixed shared region</em> (demonstrator and robot share the spawn region, objects always in
+          the same place), a <em>variable shared region</em> (objects in any of four locations), and <em>different
+          regions</em> (demonstrator and robot operate from different spawn regions).
         </p>
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
                     <tr><th>Setting</th><th>Reach</th><th>Pick</th><th>Success</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr><td>Fixed shared region</td><td>0.708 ± 0.012</td><td>0.456 ± 0.018</td><td><b>0.325 ± 0.010</b></td></tr>
                     <tr><td>Variable shared region</td><td>0.431 ± 0.000</td><td>0.312 ± 0.000</td><td>0.288 ± 0.005</td></tr>
                     <tr><td>Different regions</td><td>0.277 ± 0.024</td><td>0.190 ± 0.012</td><td>0.173 ± 0.011</td></tr>
                 </tbody>
             </table>
+          </div>
+        <div class="figure-card mt-2">
+          <img src="static/images/main-project/mimic_play_example.jpg" alt="Mimic-Play failure mode" loading="lazy">
+          <p class="figure-cap">Mimic-Play failure mode with different spawn regions: the gripper trajectory predicted
+            by the latent planner (green dots) is biased toward the demonstrator's spawn region rather than the actual
+            object location in the robot workspace.</p>
         </div>
-        <p class="text">
-            Performance degrades as spatial complexity grows. The drop in Reach is the most telling signal: because
-            the encoded hand trajectory is tightly coupled to the demonstrator's scene layout, the latent planner
-            steers the robot toward the demonstrator's spawn region rather than the actual object location.
+        <p class="table-note">
+          Performance degrades as spatial complexity grows. The drop in Reach is the most telling signal: because the
+          encoded hand trajectory is tightly coupled to the demonstrator's scene layout, the latent planner steers the
+          robot toward the demonstrator's spawn region rather than the actual object location.
         </p>
-    </div>
 
-    <div class="container blog extra-large gray">
-        <img src="static/images/main-project/mimic_play_example.jpg" alt="Mimic-Play failure mode">
-        <p class="caption">
-            Mimic-Play failure mode with different spawn regions: the gripper trajectory predicted by the latent
-            planner (green dots) is biased toward the demonstrator's spawn region rather than the actual object
-            location in the robot workspace.
+        <h4 class="minor-head">All families</h4>
+        <p class="section-lead">
+          Every baseline on the standard scenario, averaged over 16 task variations × 10 runs with different
+          environment initializations, together with the prior each method relies on.
         </p>
-    </div>
-
-    <div class="container blog main">
-        <p class="text">
-            <b>All families.</b> Every baseline on the standard scenario, averaged over 16 task variations × 10 runs
-            with different environment initializations, together with the prior each method relies on.
-        </p>
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
-                    <tr><th>Model</th><th class="label-col">Priors</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.O.</th></tr>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Model</th><th>Priors</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.O.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="group"><td colspan="6">Hand-tracking</td></tr>
-                    <tr><td>Mimic-Play</td><td class="label-col">VAE-predicted robot-space trajectory from the human hand</td><td>0.27</td><td>0.19</td><td>0.17</td><td>0.45</td></tr>
+                    <tr><td>Mimic-Play</td><td>VAE-predicted robot-space trajectory from the human hand</td><td>0.27</td><td>0.19</td><td>0.17</td><td>0.45</td></tr>
                     <tr class="group"><td colspan="6">End-to-end</td></tr>
-                    <tr><td>MOSAIC</td><td class="label-col">No task-specific prior</td><td>0.29</td><td>0.22</td><td>0.21</td><td>0.63</td></tr>
-                    <tr><td>OSVI-AWDA</td><td class="label-col">Motor-skill primitives for moving and picking</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
+                    <tr><td>MOSAIC</td><td>No task-specific prior</td><td>0.29</td><td>0.22</td><td>0.21</td><td>0.63</td></tr>
+                    <tr><td>OSVI-AWDA</td><td>Motor-skill primitives for moving and picking</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
                     <tr class="group"><td colspan="6">Object-centric</td></tr>
-                    <tr><td>CTOD-Policy</td><td class="label-col">Conditioned-Object Detector on the target object</td><td>0.99</td><td>0.95</td><td>0.60</td><td>0.00</td></tr>
-                    <tr><td>COD-Policy</td><td class="label-col">Conditioned-Object Detector on all task objects</td><td>1.00</td><td>0.95</td><td>0.93</td><td>0.00</td></tr>
+                    <tr><td>CTOD-Policy</td><td>Conditioned-Object Detector on the target object</td><td>0.99</td><td>0.95</td><td>0.60</td><td>0.00</td></tr>
+                    <tr><td>COD-Policy</td><td>Conditioned-Object Detector on all task objects</td><td>1.00</td><td>0.95</td><td>0.93</td><td>0.00</td></tr>
                     <tr class="group"><td colspan="6">World-Action Model</td></tr>
-                    <tr><td>VLA-JEPA</td><td class="label-col">No task-specific prior</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
-                    <tr><td>Mimic-Video</td><td class="label-col">No task-specific prior</td><td>0.87</td><td>0.67</td><td>0.65</td><td>0.00</td></tr>
+                    <tr><td>VLA-JEPA</td><td>No task-specific prior</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
+                    <tr><td>Mimic-Video</td><td>No task-specific prior</td><td>0.87</td><td>0.67</td><td>0.65</td><td>0.00</td></tr>
                     <tr class="group"><td colspan="6">VLA</td></tr>
-                    <tr><td>OpenVLA-OFT</td><td class="label-col">No task-specific prior</td><td>0.99</td><td>0.99</td><td>0.97</td><td>0.00</td></tr>
-                    <tr><td>TinyVLA-H</td><td class="label-col">No task-specific prior</td><td>1.00</td><td>0.98</td><td>0.96</td><td>0.00</td></tr>
-                    <tr><td>MolmoAct2</td><td class="label-col">No task-specific prior</td><td>0.94</td><td>0.84</td><td>0.80</td><td>0.00</td></tr>
-                    <tr><td>Interleave-VLA</td><td class="label-col">Visual description of target objects</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.00</td></tr>
+                    <tr><td>OpenVLA-OFT</td><td>No task-specific prior</td><td>0.99</td><td>0.99</td><td>0.97</td><td>0.00</td></tr>
+                    <tr><td>TinyVLA-H</td><td>No task-specific prior</td><td>1.00</td><td>0.98</td><td>0.96</td><td>0.00</td></tr>
+                    <tr><td>MolmoAct2</td><td>No task-specific prior</td><td>0.94</td><td>0.84</td><td>0.80</td><td>0.00</td></tr>
+                    <tr><td>Interleave-VLA</td><td>Visual description of target objects</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.00</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="text">
-            MOSAIC mostly fails to identify the task-relevant object (W.O. 0.63), while the object-centric methods
-            eliminate wrong-object failures entirely. OSVI-AWDA and VLA-JEPA reach a perfect Success rate, and the VLA
-            family also performs strongly: every family can solve the task when training and evaluation
-            configurations match. The RQ1 evaluation below shows whether this holds out of distribution.
+          </div>
+        <p class="table-note">
+          MOSAIC mostly fails to identify the task-relevant object (W.O. 0.63), while the object-centric methods
+          eliminate wrong-object failures entirely. OSVI-AWDA and VLA-JEPA reach a perfect Success rate, and the VLA
+          family also performs strongly: every family can solve the task when training and evaluation configurations
+          match. The RQ1 evaluation below shows whether this holds out of distribution.
         </p>
 
-        <h2>RQ1-1: Task-level robustness</h2>
-        <p class="text">
-            RQ1 is decomposed into two robustness axes, each evaluated through two complementary scenarios. Every
-            scenario is reported under <b>Training-Distribution (TD)</b> settings (task variations seen in training,
-            with different environment initializations) and <b>Out-of-Training-Distribution (OTD)</b> settings (task
-            variations never seen in training).
+        <h3 class="sub-head">RQ1-1: Task-level robustness</h3>
+        <p class="section-lead">
+          RQ1 is decomposed into two robustness axes, each evaluated through two complementary scenarios. Every
+          scenario is reported under <strong>Training-Distribution (TD)</strong> settings (task variations seen in
+          training, with different environment initializations) and <strong>Out-of-Training-Distribution
+          (OTD)</strong> settings (task variations never seen in training).
         </p>
-        <img src="static/images/main-project/robustness_levels.png" alt="Hierarchy of RQ1 robustness levels" style="width: 85%; display: block; margin: 0 auto;">
-        <p class="caption inline center">RQ1-1 (task level): novel task combinations and novel object instances. RQ1-2 (spatial level): known-but-different region and unseen position.</p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <div class="fig-row">
-            <div>
-                <img src="static/images/main-project/test_scenario_1.png" alt="RQ1-1 Scenario 1: novel task configurations">
-                <p class="caption"><b>Scenario #1: novel task configurations.</b> Object-color / target-bin
-                    combinations not seen during training; the individual objects and bins are all known.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/test_scenario_2.png" alt="RQ1-1 Scenario 2: novel object instances">
-                <p class="caption"><b>Scenario #2: novel object instances.</b> The robot must manipulate an object that
-                    was present in the training environment but never used as a manipulation target.</p>
-            </div>
+        <div class="figure-card is-centered">
+          <img src="static/images/main-project/robustness_levels.png" alt="Hierarchy of RQ1 robustness levels" loading="lazy">
+          <p class="figure-cap">RQ1-1 (task level): novel task combinations and novel object instances. RQ1-2 (spatial
+            level): known-but-different region and unseen position.</p>
         </div>
-    </div>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/test_scenario_1.png" alt="RQ1-1 Scenario 1: novel task configurations" loading="lazy">
+            <p class="figure-cap"><strong>Scenario #1: novel task configurations.</strong> Object-color / target-bin
+              combinations not seen during training; the individual objects and bins are all known.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/test_scenario_2.png" alt="RQ1-1 Scenario 2: novel object instances" loading="lazy">
+            <p class="figure-cap"><strong>Scenario #2: novel object instances.</strong> The robot must manipulate an
+              object that was present in the training environment but never used as a manipulation target.</p>
+          </div>
+        </div>
 
-    <div class="container blog main">
-        <p class="text"><b>Scenario #1: novel task configurations</b> (TD: 12 variations × 10 runs; OTD: 4 variations × 30 runs).</p>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h4 class="minor-head">Scenario #1: novel task configurations</h4>
+        <p class="table-note" style="margin-top:0;">TD: 12 variations × 10 runs; OTD: 4 variations × 30 runs.</p>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.95</td><td>0.95</td><td>0.05</td><td>0.00</td></tr>
                     <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.93</td><td>0.90</td><td>0.00</td><td>0.00</td></tr>
@@ -304,15 +325,15 @@
                     <tr class="otd-row alt"><td class="setting">OTD</td><td>0.92</td><td>0.78</td><td>0.00</td><td>0.15</td></tr>
                 </tbody>
             </table>
-        </div>
+          </div>
 
-        <p class="text"><b>Scenario #2: novel object instances.</b></p>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h4 class="minor-head">Scenario #2: novel object instances</h4>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.00</td><td>0.00</td><td>0.98</td><td>0.00</td></tr>
                     <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.90</td><td>0.90</td><td>0.00</td><td>0.00</td></tr>
@@ -327,64 +348,59 @@
                     <tr class="otd-row alt"><td class="setting">OTD</td><td>0.94</td><td>0.89</td><td>0.00</td><td>0.05</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="note">P.: Pick; S.: Success; W.O.: Success on Wrong Object; W.B.: Success on Wrong Bin.
-            † Language-conditioned upper-bound references, conditioned on ground-truth instructions.
-            Interl.: interleaved image-text instruction.</p>
-        <p class="text">
-            COD-Policy collapses out of distribution in both scenarios. In Scenario #2, OSVI-AWDA and TinyVLA-H show a
-            <b>dangerous failure mode</b>: instead of failing to reach the novel object, they actively grasp and place
-            the <em>wrong</em> one (W.O. 0.98 and 0.77), so the robot appears to act purposefully while solving the
-            wrong task. The broadly pre-trained models (VLA-JEPA, OpenVLA-OFT, Interleave-VLA) remain robust across
-            both scenarios: task-level robustness largely derives from large-scale pre-training rather than from the
-            architecture family.
+          </div>
+        <p class="table-note">P.: Pick; S.: Success; W.O.: Success on Wrong Object; W.B.: Success on Wrong Bin.
+          † Language-conditioned upper-bound references, conditioned on ground-truth instructions. Interl.:
+          interleaved image-text instruction.</p>
+        <p class="section-lead" style="margin-top:1rem;">
+          COD-Policy collapses out of distribution in both scenarios. In Scenario #2, OSVI-AWDA and TinyVLA-H show a
+          <strong>dangerous failure mode</strong>: instead of failing to reach the novel object, they actively grasp
+          and place the <em>wrong</em> one (W.O. 0.98 and 0.77), so the robot appears to act purposefully while
+          solving the wrong task. The broadly pre-trained models (VLA-JEPA, OpenVLA-OFT, Interleave-VLA) remain robust
+          across both scenarios: task-level robustness largely derives from large-scale pre-training rather than from
+          the architecture family.
         </p>
 
-        <h2>RQ1-2: Spatial-level robustness</h2>
-        <p class="text">
-            <span class="status">Evaluation in progress</span>&nbsp; Can the baselines operate correctly when the
-            object is placed in spatial configurations not encountered during training? In <b>Scenario #1</b>, for each
-            object color one spawn region is withheld during training, while that region stays valid for the other
-            colors: robustness here means the training set does not need to cover every spawn configuration for every
-            task. In <b>Scenario #2</b>, the same spawn region is removed for all colors, so the object appears in a
-            position never observed during training. COD-Policy and Interleave-VLA results are still being collected.
+        <h3 class="sub-head">RQ1-2: Spatial-level robustness <span class="status-badge"><i class="fas fa-circle-notch"></i> Evaluation in progress</span></h3>
+        <p class="section-lead">
+          Can the baselines operate correctly when the object is placed in spatial configurations not encountered
+          during training? In <strong>Scenario #1</strong>, for each object color one spawn region is withheld during
+          training, while that region stays valid for the other colors: robustness here means the training set does
+          not need to cover every spawn configuration for every task. In <strong>Scenario #2</strong>, the same spawn
+          region is removed for all colors, so the object appears in a position never observed during training.
+          COD-Policy and Interleave-VLA results are still being collected.
         </p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <div class="fig-row">
-            <div>
-                <img src="static/images/main-project/spawn_lv_1_traj_distribution_horizontal.jpg" alt="Trajectory-endpoint density per box color, Scenario 1">
-                <p class="caption"><b>Scenario #1.</b> Trajectory-endpoint density per box color. Dashed green boxes
-                    mark the four bin-aligned spawn regions; for each color, one region is withheld during training and
-                    used for testing.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/spawn_lv_2_traj_distribution.jpg" alt="Cumulative trajectory distribution, Scenario 2">
-                <p class="caption"><b>Scenario #2.</b> Cumulative trajectory distribution with spawn region $s_2$
-                    removed; points still appear inside it as the robot passes through on its way to the bin.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/spatial_lv1_example.jpg" alt="Training/test example, Scenario 1">
-                <p class="caption">Scenario #1 example: for the same instruction, the object is spawned at a slightly
-                    different position within the same known region.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/spatial_lv2_example.jpg" alt="Training/test example, Scenario 2">
-                <p class="caption">Scenario #2 example: the object is spawned at a novel position, never observed during
-                    training.</p>
-            </div>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/spawn_lv_1_traj_distribution_horizontal.jpg" alt="Trajectory-endpoint density per box color, Scenario 1" loading="lazy">
+            <p class="figure-cap"><strong>Scenario #1.</strong> Trajectory-endpoint density per box color. Dashed green
+              boxes mark the four bin-aligned spawn regions; for each color, one region is withheld during training and
+              used for testing.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/spawn_lv_2_traj_distribution.jpg" alt="Cumulative trajectory distribution, Scenario 2" loading="lazy">
+            <p class="figure-cap"><strong>Scenario #2.</strong> Cumulative trajectory distribution with spawn region
+              s<sub>2</sub> removed; points still appear inside it as the robot passes through on its way to the bin.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/spatial_lv1_example.jpg" alt="Training/test example, Scenario 1" loading="lazy">
+            <p class="figure-cap">Scenario #1 example: for the same instruction, the object is spawned at a slightly
+              different position within the same known region.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/spatial_lv2_example.jpg" alt="Training/test example, Scenario 2" loading="lazy">
+            <p class="figure-cap">Scenario #2 example: the object is spawned at a novel position, never observed during
+              training.</p>
+          </div>
         </div>
-    </div>
 
-    <div class="container blog main">
-        <p class="text"><b>Scenario #1: known but different region.</b></p>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h4 class="minor-head">Scenario #1: known but different region</h4>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99</td><td><b>0.99</b></td><td>0.01</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.49</td><td>0.49</td><td>0.39</td><td>0.00</td></tr>
                     <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
@@ -399,15 +415,15 @@
                     <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
                 </tbody>
             </table>
-        </div>
+          </div>
 
-        <p class="text"><b>Scenario #2: unseen position.</b></p>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h4 class="minor-head">Scenario #2: unseen position</h4>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99</td><td><b>0.99</b></td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.30</td><td>0.30</td><td>0.49</td><td>0.49</td></tr>
                     <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
@@ -422,101 +438,115 @@
                     <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
                 </tbody>
             </table>
+          </div>
+        <p class="section-lead" style="margin-top:1rem;">
+          Unlike RQ1-1, spatial-level robustness is <strong>not</strong> solved by large-scale pre-training alone. The
+          language-conditioned models handle a known-but-different region well, but every baseline, VLA-JEPA included,
+          degrades sharply once the object is placed in a genuinely unseen position (OTD Success of 0.37 or below),
+          with high Wrong-Object or Wrong-Bin rates. This gap is a key motivation for the proposal below.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============ 3. PROPOSAL ============ -->
+    <section class="section-shell" id="proposal">
+      <div class="section-inner">
+        <div class="section-header">
+          <span class="status-badge is-live"><i class="fas fa-play"></i> Ongoing activity</span>
+          <p class="eyebrow" style="margin-top:0.8rem;">3 · Proposal</p>
+          <h2 class="section-title">VC-VLA: Video-Conditioned Vision-Language-Action</h2>
+          <p class="section-lead">
+            Framed as <em>one-shot visual imitation</em>, our setting asks the robot to execute a novel task instance
+            from a <em>single</em> unstructured human video, with no paired action labels or kinematic data. Following
+            the insight that one-shot visual imitation benefits from <strong>separating task inference (what to do)
+            from task execution (how to do it)</strong>, VC-VLA extends language-conditioned policies to the
+            human-video-conditioned setting.
+          </p>
         </div>
-        <p class="text">
-            Unlike RQ1-1, spatial-level robustness is <b>not</b> solved by large-scale pre-training alone. The
-            language-conditioned models handle a known-but-different region well, but every baseline, VLA-JEPA
-            included, degrades sharply once the object is placed in a genuinely unseen position (OTD Success of 0.37
-            or below), with high Wrong-Object or Wrong-Bin rates. This gap is a key motivation for the proposal below.
-        </p>
-    </div>
 
-
-    <!-- ======================= 3. Proposal ======================= -->
-    <div class="container blog main">
-        <h1>3. Proposal: VC-VLA</h1>
-        <p class="text">
-            <span class="status live">Ongoing activity</span>&nbsp; Framed as <em>one-shot visual imitation</em>, our
-            setting asks the robot to execute a novel task instance from a <em>single</em> unstructured human video,
-            with no paired action labels or kinematic data. Following the insight that one-shot visual imitation
-            benefits from <b>separating task inference (what to do) from task execution (how to do it)</b>, we
-            designed the <b>Video-Conditioned Vision-Language-Action</b> framework (VC-VLA), which extends
-            language-conditioned policies to the human-video-conditioned setting.
-        </p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <img src="static/images/main-project/video-conditioned-vla.jpg" alt="VC-VLA architecture">
-        <p class="caption">
-            <b>VC-VLA overview.</b> A video-captioning module (Cosmos-Reason V2) performs <em>task inference</em>,
-            turning the raw human video into a high-level textual instruction through a structured prompt. The
-            instruction, together with the robot's visual observation and proprioceptive state, is passed to a
-            language-conditioned VLA or WAM for <em>task execution</em>. The design needs no manual segmentation, task
-            annotation, or kinematic alignment.
-        </p>
-    </div>
-
-    <div class="container blog main">
-        <p class="text">
-            If the task-inference module identifies the demonstrated task correctly, the downstream policy can reuse
-            knowledge acquired from broad robotic datasets to solve novel task instances. The compositional structure
-            of the generated instruction and the grounding capabilities of the VLA play the role that attributed
-            waypoints and motor primitives play in classical one-shot visual imitation, keeping the system focused on
-            the <em>task</em> rather than the <em>task context</em> seen in training.
-        </p>
-
-        <h2>Task inference: video-captioning module</h2>
-        <p class="text">
-            Any captioning error propagates directly to the downstream policy, so the module was first assessed in
-            isolation. Cosmos-Reason V2 was queried with two prompt variants. The <b>strong a-priori</b> prompt tells
-            the model the exact number and identity of the objects and bins. The <b>free-placement</b> prompt makes no
-            assumption about the scene: it describes the manipulated object by whatever visual property distinguishes
-            it and reports the target container through an explicit ordinal count from the left.
-        </p>
-        <div class="prompt"><b>Strong a-priori · System:</b> You are a robotic perception system. Given a video of a
-            human operator performing a pick-and-place task, … The workspace contains 4 colored boxes (red, blue, green,
-            yellow) and 4 numbered bins (1, 2, 3, 4) from left to right.<br>
-            <b>User:</b> Describe the task performed by the human operator. Describe with a template like: Pick the
-            [COLOR] box and place it into the [NUMBER] bin.</div>
-        <div class="prompt"><b>Free-placement · System:</b> … Identify the object being picked up and the location or
-            container it is placed into, describing each by whatever visual property actually distinguishes it … do
-            not assume the workspace contains any particular fixed set of objects or colors. … count every container
-            in the row from left to right starting at 1, and report the target container by that ordinal
-            position.<br>
-            <b>User:</b> … using the template: “Pick the [OBJECT] and place it into the [TARGET].”</div>
-
-        <div class="stats">
-            <div><div class="num">1.00</div><div class="lbl">Color accuracy<br>(both prompts)</div></div>
-            <div><div class="num">0.91</div><div class="lbl">Bin accuracy<br>strong a-priori prompt</div></div>
-            <div><div class="num">0.90</div><div class="lbl">Bin accuracy<br>free-placement prompt</div></div>
-            <div><div class="num">48</div><div class="lbl">Samples per<br>prompt variant</div></div>
+        <div class="figure-card">
+          <img src="static/images/main-project/video-conditioned-vla.jpg" alt="VC-VLA architecture" loading="lazy">
+          <p class="figure-cap"><strong>VC-VLA overview.</strong> A video-captioning module (Cosmos-Reason V2)
+            performs <em>task inference</em>, turning the raw human video into a high-level textual instruction
+            through a structured prompt. The instruction, together with the robot's visual observation and
+            proprioceptive state, is passed to a language-conditioned VLA or WAM for <em>task execution</em>. The
+            design needs no manual segmentation, task annotation, or kinematic alignment.</p>
         </div>
-        <p class="text">
-            Object identification is solved regardless of how much scene information the model receives. Residual
-            errors are confined to the target bin, mostly confusions between spatially adjacent bins (second read as
-            first, third as fourth). Bin accuracy barely changes when the prompt is made scene-agnostic (0.91 → 0.90),
-            so hand-crafted scene priors are not required for reliable task inference.
+        <p class="section-lead mt-2">
+          If the task-inference module identifies the demonstrated task correctly, the downstream policy can reuse
+          knowledge acquired from broad robotic datasets to solve novel task instances. The compositional structure of
+          the generated instruction and the grounding capabilities of the VLA play the role that attributed waypoints
+          and motor primitives play in classical one-shot visual imitation, keeping the system focused on the
+          <em>task</em> rather than the <em>task context</em> seen in training.
         </p>
-    </div>
 
+        <h3 class="sub-head">Task inference: video-captioning module</h3>
+        <p class="section-lead">
+          Any captioning error propagates directly to the downstream policy, so the module was first assessed in
+          isolation. Cosmos-Reason V2 was queried with two prompt variants. The <strong>strong a-priori</strong>
+          prompt tells the model the exact number and identity of the objects and bins. The
+          <strong>free-placement</strong> prompt makes no assumption about the scene: it describes the manipulated
+          object by whatever visual property distinguishes it and reports the target container through an explicit
+          ordinal count from the left.
+        </p>
+        <div class="prompt-box">
+          <span class="prompt-title">Strong a-priori prompt</span>
+          <b>System:</b> You are a robotic perception system. Given a video of a human operator performing a
+          pick-and-place task, … The workspace contains 4 colored boxes (red, blue, green, yellow) and 4 numbered bins
+          (1, 2, 3, 4) from left to right.<br>
+          <b>User:</b> Describe the task performed by the human operator. Describe with a template like: Pick the
+          [COLOR] box and place it into the [NUMBER] bin.
+        </div>
+        <div class="prompt-box">
+          <span class="prompt-title">Free-placement prompt (no scene priors)</span>
+          <b>System:</b> … Identify the object being picked up and the location or container it is placed into,
+          describing each by whatever visual property actually distinguishes it … do not assume the workspace contains
+          any particular fixed set of objects or colors. … count every container in the row from left to right
+          starting at 1, and report the target container by that ordinal position.<br>
+          <b>User:</b> … using the template: “Pick the [OBJECT] and place it into the [TARGET].”
+        </div>
 
-    <!-- ======================= 4. Simulated Evaluation ======================= -->
-    <div class="container blog main">
-        <h1>4. Simulated Evaluation</h1>
-        <p class="text">
+        <div class="stat-row">
+          <div class="stat-card"><div class="stat-num">1.00</div><div class="stat-label">Color accuracy<br>(both prompts)</div></div>
+          <div class="stat-card"><div class="stat-num">0.91</div><div class="stat-label">Bin accuracy<br>strong a-priori prompt</div></div>
+          <div class="stat-card"><div class="stat-num">0.90</div><div class="stat-label">Bin accuracy<br>free-placement prompt</div></div>
+          <div class="stat-card"><div class="stat-num">48</div><div class="stat-label">Samples per<br>prompt variant</div></div>
+        </div>
+        <p class="table-note">
+          Object identification is solved regardless of how much scene information the model receives. Residual errors
+          are confined to the target bin, mostly confusions between spatially adjacent bins (second read as first,
+          third as fourth). Bin accuracy barely changes when the prompt is made scene-agnostic (0.91 → 0.90), so
+          hand-crafted scene priors are not required for reliable task inference.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============ 4. SIMULATED EVALUATION ============ -->
+    <section class="section-shell alt" id="simulation">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">4 · Simulated Evaluation</p>
+          <h2 class="section-title">VC-VLA in simulation</h2>
+          <p class="section-lead">
             VC-VLA is instantiated with three task-execution backbones: OpenVLA-OFT, TinyVLA-H, and VLA-JEPA. Each
             pipeline is evaluated first on the standard scenario and then on the RQ1 robustness axes, following the
             same protocol used for the baselines.
-        </p>
+          </p>
+        </div>
 
-        <h2>Standard scenario</h2>
-        <p class="text">Each backbone with a ground-truth instruction, followed by its VC-VLA counterpart, which receives the Cosmos-Reason V2 caption instead.</p>
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
+        <h3 class="sub-head">Standard scenario</h3>
+        <p class="section-lead">Each backbone with a ground-truth instruction, followed by its VC-VLA counterpart,
+          which receives the Cosmos-Reason V2 caption instead.</p>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
                     <tr><th>Model</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr><td>OpenVLA-OFT</td><td>0.99</td><td>0.99</td><td>0.97</td><td>0.00</td></tr>
                     <tr class="proposed"><td>Cosmos + OpenVLA-OFT</td><td>0.99</td><td>0.99</td><td>0.88</td><td>0.09</td></tr>
                     <tr><td>TinyVLA-H</td><td>1.00</td><td>0.98</td><td>0.96</td><td>0.00</td></tr>
@@ -525,21 +555,21 @@
                     <tr class="proposed"><td>Cosmos + VLA-JEPA</td><td>0.99</td><td>0.99</td><td><b>0.90</b></td><td>0.10</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="text">
-            For every backbone, the Success drop introduced by VC-VLA is entirely explained by the Wrong-Bin rate, with
-            no extra wrong-object failures: captioning ambiguity is confined to target-bin identification. VC-VLA is
-            therefore backbone-agnostic, and improving bin identification in the captioning module is the most direct
-            way to close the remaining gap. The MolmoAct2 integration is under evaluation.
+          </div>
+        <p class="table-note">
+          For every backbone, the Success drop introduced by VC-VLA is entirely explained by the Wrong-Bin rate, with
+          no extra wrong-object failures: captioning ambiguity is confined to target-bin identification. VC-VLA is
+          therefore backbone-agnostic, and improving bin identification in the captioning module is the most direct
+          way to close the remaining gap. The MolmoAct2 integration is under evaluation.
         </p>
 
-        <h2>RQ1-1: Task-level robustness</h2>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h3 class="sub-head">RQ1-1: Task-level robustness</h3>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>1.00</td><td>1.00</td><td>0.00</td><td>0.00</td></tr>
                     <tr class="td-row alt"><td rowspan="2">Cosmos + OpenVLA-OFT</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>0.98</td><td>0.86</td><td>0.00</td><td>0.07</td></tr>
@@ -558,23 +588,23 @@
                     <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.99</td><td><b>0.91</b></td><td>0.02</td><td>0.08</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="text">
-            All three pipelines keep strong OTD performance on novel task configurations (0.74–0.93) with zero
-            wrong-object errors, so VC-VLA carries language-conditioned robustness over to the human-video-conditioned
-            setting. On novel objects, Cosmos + VLA-JEPA stays robust (0.91), while Cosmos + TinyVLA-H inherits
-            TinyVLA-H's own wrong-object failure (W.O. 0.65): the bottleneck there lies in the action module, not in
-            task inference. The best pipeline is <b>Cosmos + VLA-JEPA</b>.
+          </div>
+        <p class="table-note">
+          All three pipelines keep strong OTD performance on novel task configurations (0.74–0.93) with zero
+          wrong-object errors, so VC-VLA carries language-conditioned robustness over to the human-video-conditioned
+          setting. On novel objects, Cosmos + VLA-JEPA stays robust (0.91), while Cosmos + TinyVLA-H inherits
+          TinyVLA-H's own wrong-object failure (W.O. 0.65): the bottleneck there lies in the action module, not in task
+          inference. The best pipeline is <strong>Cosmos + VLA-JEPA</strong>.
         </p>
 
-        <h2>RQ1-2: Spatial-level robustness</h2>
-        <p class="text"><span class="status">Preliminary</span>&nbsp; Evaluated so far with the best pipeline, Cosmos + VLA-JEPA.</p>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h3 class="sub-head">RQ1-2: Spatial-level robustness <span class="status-badge"><i class="fas fa-circle-notch"></i> Preliminary</span></h3>
+        <p class="section-lead">Evaluated so far with the best pipeline, Cosmos + VLA-JEPA.</p>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.98</td><td>0.97</td><td>0.00</td><td>0.00</td></tr>
                     <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>0.99</td><td>0.79</td><td>0.00</td><td>0.20</td></tr>
@@ -585,77 +615,75 @@
                     <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.34</td><td>0.26</td><td>0.31</td><td>0.07</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="note">† Language-conditioned upper bound (ground-truth instruction), shown for reference.</p>
-        <p class="text">
-            The results mirror the baselines: performance holds for a known-but-different region (0.79 in both TD and
-            OTD, with the gap to the upper bound again due to wrong bins), but drops sharply for genuinely unseen
-            positions (0.79 → 0.26). Spatial-level robustness remains the key open problem of this activity.
+          </div>
+        <p class="table-note">
+          † Language-conditioned upper bound (ground-truth instruction), shown for reference. The results mirror the
+          baselines: performance holds for a known-but-different region (0.79 in both TD and OTD, with the gap to the
+          upper bound again due to wrong bins), but drops sharply for genuinely unseen positions (0.79 → 0.26).
+          Spatial-level robustness remains the key open problem of this activity.
         </p>
-    </div>
+      </div>
+    </section>
 
+    <div class="section-divider"></div>
 
-    <!-- ======================= 5. Real-World Evaluation ======================= -->
-    <div class="container blog main">
-        <h1>5. Real-World Evaluation</h1>
-        <p class="text">
+    <!-- ============ 5. REAL-WORLD EVALUATION ============ -->
+    <section class="section-shell" id="real-world">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">5 · Real-World Evaluation</p>
+          <h2 class="section-title">From simulation to a real UR5e</h2>
+          <p class="section-lead">
             To check whether these robustness properties transfer beyond simulation, a preliminary campaign was
-            carried out on a real <b>UR5e manipulator</b>, reproducing the same pick-and-place scenario. It covers
-            (i) a comparison against a non-learning-based baseline, in addition to the learned baselines already used
-            in simulation, and (ii) a real-world instantiation of the RQ1-1 protocol for VC-VLA.
-        </p>
-
-        <h2>Setup and dataset</h2>
-        <p class="text">
-            For each task variation, <b>40</b> demonstrations were collected via teleoperation. To diversify the
-            trajectories, five spatial configurations of the target objects were defined relative to the fixed bin
-            layout, each sampled within a common 60 cm × 15 cm picking region offset 15 cm from the bins.
-        </p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <div class="fig-row">
-            <div>
-                <img src="static/images/main-project/workspace.jpg" alt="Real UR5e workspace compared to simulation">
-                <p class="caption">Real UR5e workspace matched against its simulated counterpart, with corresponding
-                    third-view and wrist-camera viewpoints.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/box_placement.jpg" alt="Five spatial configurations used for data collection">
-                <p class="caption">Data-collection protocol: five spatial configurations of the colored boxes relative
-                    to the fixed four-bin layout.</p>
-            </div>
+            carried out on a real <strong>UR5e manipulator</strong>, reproducing the same pick-and-place scenario. It
+            covers (i) a comparison against a non-learning-based baseline, in addition to the learned baselines already
+            used in simulation, and (ii) a real-world instantiation of the RQ1-1 protocol for VC-VLA.
+          </p>
         </div>
-    </div>
 
-    <div class="container blog main">
-        <h2>Non-learning baseline: SeeDo</h2>
-        <p class="text">
-            <b>SeeDo</b> orchestrates task understanding and execution through hand-crafted heuristics and pretrained
-            Vision-Language Models instead of a learned policy. In the <em>Demonstration Phase</em>, a Keyframe Selector
-            segments the human video into Start, Pick, and Place keyframes from hand velocity, Object Tracking grounds
-            the target (Grounding DINO, with the object class assumed known a priori), and a VLM turns the visual prompt
-            into a symbolic plan. At execution time, the <em>Runtime Phase</em> re-grounds the plan in the robot scene
-            with open-vocabulary detection on calibrated RGB-D streams, and the <em>Control Phase</em> compiles it into a
-            program (Code-as-Policies style) executed through a fixed library of motion primitives. SeeDo needs no
-            training data, but its performance is bound to two assumptions: an accurate camera calibration and a-priori
-            task and object knowledge.
+        <h3 class="sub-head">Setup and dataset</h3>
+        <p class="section-lead">
+          For each task variation, <strong>40</strong> demonstrations were collected via teleoperation. To diversify
+          the trajectories, five spatial configurations of the target objects were defined relative to the fixed bin
+          layout, each sampled within a common 60 cm × 15 cm picking region offset 15 cm from the bins.
         </p>
-    </div>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/workspace.jpg" alt="Real UR5e workspace compared to simulation" loading="lazy">
+            <p class="figure-cap">Real UR5e workspace matched against its simulated counterpart, with corresponding
+              third-view and wrist-camera viewpoints.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/box_placement.jpg" alt="Five spatial configurations used for data collection" loading="lazy">
+            <p class="figure-cap">Data-collection protocol: five spatial configurations of the colored boxes relative
+              to the fixed four-bin layout.</p>
+          </div>
+        </div>
 
-    <div class="container blog extra-large gray">
-        <video controls muted playsinline loop preload="metadata" src="static/video/seedo.mp4" style="width: 100%;"></video>
-        <p class="caption">SeeDo on the real UR5e setup.</p>
-    </div>
+        <h3 class="sub-head">Non-learning baseline: SeeDo</h3>
+        <p class="section-lead">
+          <strong>SeeDo</strong> orchestrates task understanding and execution through hand-crafted heuristics and
+          pretrained Vision-Language Models instead of a learned policy. In the <em>Demonstration Phase</em>, a
+          Keyframe Selector segments the human video into Start, Pick, and Place keyframes from hand velocity, Object
+          Tracking grounds the target (Grounding DINO, with the object class assumed known a priori), and a VLM turns
+          the visual prompt into a symbolic plan. At execution time, the <em>Runtime Phase</em> re-grounds the plan in
+          the robot scene with open-vocabulary detection on calibrated RGB-D streams, and the <em>Control Phase</em>
+          compiles it into a program (Code-as-Policies style) executed through a fixed library of motion primitives.
+          SeeDo needs no training data, but its performance is bound to two assumptions: an accurate camera calibration
+          and a-priori task and object knowledge.
+        </p>
+        <div class="figure-card">
+          <video controls muted playsinline loop preload="metadata" src="static/video/seedo.mp4"></video>
+          <p class="figure-cap">SeeDo on the real UR5e setup.</p>
+        </div>
 
-    <div class="container blog main">
-        <h2>Baseline results</h2>
-        <div class="table-wrapper">
-            <table class="tdotd">
-                <thead class="center">
+        <h3 class="sub-head">Baseline results</h3>
+        <div class="table-wrap">
+            <table class="data-table tdotd">
+                <thead>
                     <tr><th>Model</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr class="td-row"><td rowspan="2">SeeDo (non-learning)</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
                     <tr class="otd-row"><td class="setting">OTD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
                     <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td class="setting">TD</td><td>0.62</td><td>0.52</td><td>0.00</td><td>0.10</td></tr>
@@ -668,56 +696,48 @@
                     <tr class="otd-row"><td class="setting">OTD</td><td>0.81</td><td>0.75</td><td>0.00</td><td>0.00</td></tr>
                 </tbody>
             </table>
+          </div>
+        <p class="table-note">TD: 48 trajectories (4 runs × 12 task variations); OTD: 16 trajectories (4 runs × 4 task
+          variations).</p>
+        <p class="section-lead" style="margin-top:1rem;">
+          The best-performing baselines are the two methods built on hand-crafted heuristics, SeeDo and OSVI-AWDA,
+          which transfer to the real robot almost without degradation. Fully data-driven methods (COD-Policy,
+          Interleave-VLA, VLA-JEPA) show a pronounced sim-to-real gap: VLA-JEPA drops to 0.67 TD / 0.75 OTD Success
+          against 0.98 / 0.97 in simulation.
+        </p>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/osvi_awda_waypoints.jpg" alt="OSVI-AWDA attributed waypoints" loading="lazy">
+            <p class="figure-cap">OSVI-AWDA predicts attributed waypoints (Free-Space, Grasp, Carry, Drop) from the
+              human video, executed through hand-crafted motor primitives.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/osvi_awda_grasp_refinment.jpg" alt="OSVI-AWDA grasp refinement" loading="lazy">
+            <p class="figure-cap">At the grasp waypoint, the a-priori-known object is localized in the wrist RGB-D view
+              (contour, centroid, depth), relying on an accurate camera-to-robot calibration.</p>
+          </div>
         </div>
-        <p class="note">TD: 48 trajectories (4 runs × 12 task variations); OTD: 16 trajectories (4 runs × 4 task variations).</p>
-        <p class="text">
-            The best-performing baselines are the two methods built on hand-crafted heuristics, SeeDo and OSVI-AWDA,
-            which transfer to the real robot almost without degradation. Fully data-driven methods (COD-Policy,
-            Interleave-VLA, VLA-JEPA) show a pronounced sim-to-real gap: VLA-JEPA drops to 0.67 TD / 0.75 OTD Success
-            against 0.98 / 0.97 in simulation.
+        <p class="section-lead">
+          The explanation lies in what each approach assumes. SeeDo and OSVI-AWDA require a-priori knowledge of (i) the
+          task, since SeeDo's prompt must be tuned per task while OSVI-AWDA encodes it in its attributed waypoints, and
+          (ii) the object to manipulate, which both localize through a calibrated camera-to-robot transform during a
+          grasp-refinement step. Learned control policies are more flexible given enough data, but more sensitive to
+          the sim-to-real domain gap and to real teleoperated demonstrations, which are noisier and costly to collect.
         </p>
-        <p class="text">
-            The explanation lies in what each approach assumes. SeeDo and OSVI-AWDA require a-priori knowledge of
-            (i) the task, since SeeDo's prompt must be tuned per task while OSVI-AWDA encodes it in its attributed
-            waypoints, and (ii) the object to manipulate, which both localize through a calibrated camera-to-robot
-            transform during a grasp-refinement step. Learned control policies are more flexible given enough data,
-            but more sensitive to the sim-to-real domain gap and to real teleoperated demonstrations, which are noisier
-            and costly to collect.
+
+        <h3 class="sub-head">SeeDo: prompt sensitivity</h3>
+        <p class="section-lead">
+          SeeDo's two assumptions are not needed by VC-VLA, so we measured how much SeeDo depends on each. First, for
+          the same pick-and-place task, a <strong>prior-guided</strong> prompt that restricts the detector vocabulary
+          to the four known cube colors was compared with a <strong>generalized</strong> prompt that describes each
+          object only by its visible color and a generic object type, with and without distractor objects.
         </p>
-    </div>
-
-    <div class="container blog extra-large gray">
-        <div class="fig-row">
-            <div>
-                <img src="static/images/main-project/osvi_awda_waypoints.jpg" alt="OSVI-AWDA attributed waypoints">
-                <p class="caption">OSVI-AWDA predicts attributed waypoints (Free-Space, Grasp, Carry, Drop) from the
-                    human video, executed through hand-crafted motor primitives.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/osvi_awda_grasp_refinment.jpg" alt="OSVI-AWDA grasp refinement">
-                <p class="caption">At the grasp waypoint, the a-priori-known object is localized in the wrist RGB-D view
-                    (contour, centroid, depth), relying on an accurate camera-to-robot calibration.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container blog main">
-        <h2>SeeDo: prompt sensitivity</h2>
-        <p class="text">
-            SeeDo's two assumptions are not needed by VC-VLA, so we measured how much SeeDo depends on each. First, for
-            the same pick-and-place task, a <b>prior-guided</b> prompt that restricts the detector vocabulary to the
-            four known cube colors was compared with a <b>generalized</b> prompt that describes each object only by
-            its visible color and a generic object type, with and without distractor objects.
-        </p>
-    </div>
-
-    <div class="container blog main">
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
                     <tr><th>Scene / metric</th><th>Prior-guided · Class</th><th>Prior-guided · Attribute</th><th>Generalized · Class</th><th>Generalized · Attribute</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr><td>No distractors · all metrics</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
                     <tr><td>Distractors · Accuracy</td><td>0.80</td><td>0.64</td><td><b>0.94</b></td><td><b>0.88</b></td></tr>
                     <tr><td>Distractors · Precision</td><td>0.91</td><td>0.81</td><td><b>1.00</b></td><td><b>1.00</b></td></tr>
@@ -725,67 +745,61 @@
                     <tr><td>Distractors · F1-score</td><td>0.89</td><td>0.78</td><td><b>0.97</b></td><td><b>0.93</b></td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="note">Class: correct object type. Attribute: correct object type and color.</p>
-        <p class="text">
-            Without distractors both prompts are perfect. With distractors, the prior-guided prompt, despite encoding
-            stronger scene assumptions, is the <b>more brittle</b> one: its closed vocabulary forces the detector to
-            read visually similar distractors as target cubes, inflating false positives. Closed-vocabulary priors
-            help only in the exact scene they were tuned for.
+          </div>
+        <p class="table-note">Class: correct object type. Attribute: correct object type and color.</p>
+        <p class="section-lead" style="margin-top:1rem;">
+          Without distractors both prompts are perfect. With distractors, the prior-guided prompt, despite encoding
+          stronger scene assumptions, is the <strong>more brittle</strong> one: its closed vocabulary forces the
+          detector to read visually similar distractors as target cubes, inflating false positives. Closed-vocabulary
+          priors help only in the exact scene they were tuned for.
         </p>
-        <p class="text">
-            Second, the same generalized prompt was applied, unchanged, to a structurally different task: nut
-            assembly (pick a nut and place it onto a peg). A tuned variant then returns structured JSON records that
-            separate each object's category from its attributes, and grounds unfamiliar shapes with concrete nouns
-            (e.g., “wooden peg”).
+        <p class="section-lead">
+          Second, the same generalized prompt was applied, unchanged, to a structurally different task: nut assembly
+          (pick a nut and place it onto a peg). A tuned variant then returns structured JSON records that separate each
+          object's category from its attributes, and grounds unfamiliar shapes with concrete nouns (e.g., “wooden
+          peg”).
         </p>
-    </div>
-
-    <div class="container blog main gray">
-        <div class="fig-row">
-            <div>
-                <img src="static/images/main-project/real_pick_place.jpg" alt="Real-world cube pick-and-place">
-                <p class="caption">Cube pick-and-place: pick a cube and place it into a storage bin.</p>
-            </div>
-            <div>
-                <img src="static/images/main-project/real_nut_assembly.jpg" alt="Real-world nut assembly">
-                <p class="caption">Nut assembly: pick a nut and place it onto a peg.</p>
-            </div>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/real_pick_place.jpg" alt="Real-world cube pick-and-place" loading="lazy">
+            <p class="figure-cap">Cube pick-and-place: pick a cube and place it into a storage bin.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/real_nut_assembly.jpg" alt="Real-world nut assembly" loading="lazy">
+            <p class="figure-cap">Nut assembly: pick a nut and place it onto a peg.</p>
+          </div>
         </div>
-    </div>
-
-    <div class="container blog main">
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
                     <tr><th>Prompt</th><th>Box acc.</th><th>Bin acc.</th><th>Pick-and-place Success</th><th>Nut acc.</th><th>Peg acc.</th><th>Nut-assembly Success</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr><td>Generalized</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>0.00</td><td>0.00</td></tr>
                     <tr><td>Tuned generalized</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="text">
-            Prompt tuning raises peg localization from 0.00 to 1.00, yet nut-assembly success stays at 0.00: the
-            remaining gap lies in the grasping and manipulation strategy, which lacks object-specific knowledge such as
-            the peg's pose and thread alignment. Adapting SeeDo to a new task therefore costs a round of prompt tuning
-            <em>plus</em> a separate, still unresolved, adaptation of the motor-primitive library, a cost that a learned
-            pipeline such as VC-VLA is designed to absorb from data.
+          </div>
+        <p class="table-note">
+          Prompt tuning raises peg localization from 0.00 to 1.00, yet nut-assembly success stays at 0.00: the
+          remaining gap lies in the grasping and manipulation strategy, which lacks object-specific knowledge such as
+          the peg's pose and thread alignment. Adapting SeeDo to a new task therefore costs a round of prompt tuning
+          <em>plus</em> a separate, still unresolved, adaptation of the motor-primitive library, a cost that a learned
+          pipeline such as VC-VLA is designed to absorb from data.
         </p>
 
-        <h2>SeeDo: calibration sensitivity</h2>
-        <p class="text">
-            Zero-mean Gaussian noise was added independently to each translation and rotation component of the
-            camera-to-robot extrinsic transform, and SeeDo was run for 5 trials of the same pick-and-place task at each
-            noise level.
+        <h3 class="sub-head">SeeDo: calibration sensitivity</h3>
+        <p class="section-lead">
+          Zero-mean Gaussian noise was added independently to each translation and rotation component of the
+          camera-to-robot extrinsic transform, and SeeDo was run for 5 trials of the same pick-and-place task at each
+          noise level.
         </p>
-        <div class="table-wrapper">
-            <table>
-                <thead class="center">
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
                     <tr><th>Translation noise (mm)</th><th>Rotation noise (°)</th><th>Success rate</th><th>Successful trials</th></tr>
                 </thead>
-                <tbody class="center">
+                <tbody>
                     <tr><td>0.0</td><td>0.00</td><td>100%</td><td>5/5</td></tr>
                     <tr><td>1.0</td><td>0.10</td><td>100%</td><td>5/5</td></tr>
                     <tr><td>3.0</td><td>0.25</td><td>100%</td><td>5/5</td></tr>
@@ -794,34 +808,40 @@
                     <tr><td>25.0</td><td>5.00</td><td>0%</td><td>0/5</td></tr>
                 </tbody>
             </table>
-        </div>
-        <p class="text">
-            SeeDo tolerates only a few millimeters and a fraction of a degree of calibration error, then collapses
-            rather than degrading gracefully. Accurate calibration is a hard requirement for SeeDo, whereas VC-VLA,
-            like data-driven approaches in general, perceives the scene end-to-end from RGB observations and does not
-            depend on a hand-crafted extrinsic calibration.
+          </div>
+        <p class="table-note">
+          SeeDo tolerates only a few millimeters and a fraction of a degree of calibration error, then collapses rather
+          than degrading gracefully. Accurate calibration is a hard requirement for SeeDo, whereas VC-VLA, like
+          data-driven approaches in general, perceives the scene end-to-end from RGB observations and does not depend
+          on a hand-crafted extrinsic calibration.
         </p>
 
-        <h2>VC-VLA in the real world</h2>
-        <p class="text">
-            <span class="status">In progress</span>&nbsp; The real-world evaluation of the proposed pipeline
-            (Cosmos-Reason V2 + VLA-JEPA) reuses the train and test task configurations of RQ1-1 Scenario #1, now
-            instantiated on the real UR5e with the teleoperated dataset described above. Results will be added once
-            the real-robot rollouts are completed.
+        <h3 class="sub-head">VC-VLA in the real world <span class="status-badge"><i class="fas fa-circle-notch"></i> In progress</span></h3>
+        <p class="section-lead">
+          The real-world evaluation of the proposed pipeline (Cosmos-Reason V2 + VLA-JEPA) reuses the train and test
+          task configurations of RQ1-1 Scenario #1, now instantiated on the real UR5e with the teleoperated dataset
+          described above. Results will be added once the real-robot rollouts are completed.
         </p>
-    </div>
+      </div>
+    </section>
 
+  </main>
 
-    <!-- ======================= Footer ======================= -->
-    <footer>
-        <div class="container">
-            <p>
-                Activity Report · Francesco Rosa · DIEM, Università degli Studi di Salerno.<br>
-                This website is built on the <a href="https://shikun.io/projects/clarity">Clarity Template</a>, designed by <a href="https://shikun.io/">Shikun Liu</a>.
-            </p>
-        </div>
-    </footer>
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
 
-    <script src="assets/scripts/main.js"></script>
+  <footer class="site-footer">
+    <p>Activity Report · Francesco Rosa · DIEM, Università degli Studi di Salerno</p>
+    <p style="margin-top:0.4rem;">
+      Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank"
+        rel="noopener">Academic Project Page Template</a>,
+      adapted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+    </p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="static/js/main.js"></script>
 </body>
+
 </html>

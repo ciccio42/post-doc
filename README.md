@@ -7,26 +7,23 @@ learning) and on the currently active research question, **RQ1**: baseline
 robustness results (RQ1-1 task-level, RQ1-2 spatial-level) and the proposed
 **VC-VLA** architecture, with both simulated and real-world results.
 
-Built with the [Clarity template](https://github.com/lorenmt/clarity-template) by Shikun Liu
-(static HTML, no build step; CC BY-SA 4.0, see `LICENSE-clarity`).
+Built with the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template)
+(Bulma CSS, no build step) and adapted into a multi-section report layout.
 
 ## Structure
 
 ```
 index.html              # all page content
-assets/                  # Clarity: stylesheet, Charter font, Font Awesome, scripts
-  scripts/navbar.js      # floating table of contents (patched to list h2 across containers)
-clarity/clarity.css      # Clarity grid helpers
 static/
-  css/report.css         # report-specific styles (tables, figure rows, callouts)
+  css/bulma.min.css      # Bulma (from the original template)
+  css/custom.css         # page design: nav, hero, sections, figure cards, TD/OTD tables
+  js/main.js             # mobile nav, scroll-spy, scroll-to-top, KaTeX rendering
+  images/main-project/   # figures
   video/                 # SeeDo real-robot video
-  images/
-    main-project/        # figures for REASONED (taxonomy, baselines, VC-VLA, real-world eval)
-    misc/                # author photo, favicon
 ```
 
-Font Awesome and the Charter font are self-hosted; Poppins/Fira Code (Google Fonts)
-and MathJax (cdnjs) are loaded from CDNs.
+Font Awesome, KaTeX (cdnjs) and the Inter font (Google Fonts) are loaded from CDNs;
+everything else is self-hosted.
 
 ## Preview locally
 
@@ -45,7 +42,8 @@ python -m http.server 8000
 
 ## Updating content
 
-All content lives in `index.html`, split into five chapters: 1. Problem and Taxonomy,
-2. Baseline Evaluation (RQ1-1, RQ1-2), 3. Proposal (VC-VLA), 4. Simulated Evaluation,
-5. Real-World Evaluation. Each `h1` / `h2` inside a `container blog main` block becomes an
-entry in the floating table of contents. Figures go in `container blog ... gray` blocks.
+All content lives in `index.html`, in five `<section>` blocks whose ids match the top
+navigation: `#problem` (1. Problem and Taxonomy), `#baselines` (2. Baseline Evaluation, RQ1-1
+and RQ1-2), `#proposal` (3. VC-VLA), `#simulation` (4. Simulated Evaluation) and `#real-world`
+(5. Real-World Evaluation). TD/OTD tables use `class="data-table tdotd"` with one TD and one
+OTD row per method.
