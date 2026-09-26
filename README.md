@@ -44,5 +44,5 @@ python -m http.server 8000
 
 All content lives in `index.html`, organized into `<section>` blocks with ids
 matching the top navigation (`#overview`, `#main-project`, `#rq1-1`, `#rq1-2`,
-`#proposal`, `#about`). Section-specific visual styles are in
+`#proposal`, `#seedo`, `#dissemination`, `#about`). Section-specific visual styles are in
 `static/css/custom.css`.

@@ -1,6 +1,23 @@
 (function () {
   "use strict";
 
+  // Render math formulas with KaTeX (falls back to the plain HTML already
+  // in the markup if the CDN script fails to load, e.g. offline).
+  if (window.katex) {
+    document.querySelectorAll(".formula-katex").forEach(function (el) {
+      var tex = el.getAttribute("data-tex");
+      if (!tex) return;
+      try {
+        katex.render(tex, el, {
+          throwOnError: false,
+          displayMode: el.classList.contains("formula-display"),
+        });
+      } catch (e) {
+        /* keep the fallback markup already in the element */
+      }
+    });
+  }
+
   // Mobile nav toggle
   var burger = document.querySelector(".nav-burger");
   var links = document.querySelector(".nav-links");
