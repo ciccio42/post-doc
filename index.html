@@ -5,9 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Activity Report: Francesco Rosa | REASONED</title>
+  <title>Francesco Rosa | REASONED</title>
   <meta name="description"
-    content="Post-doctoral activity report of Francesco Rosa (DIEM, University of Salerno) on REASONED: Robots lEarn tASks ObserviNg vidEo Demonstration. Problem and taxonomy, baseline evaluation (RQ1-1, RQ1-2), the proposed VC-VLA architecture, simulated and real-world evaluation.">
+    content="Post-doctoral research results on REASONED: Robots lEarn tASks ObserviNg vidEo Demonstration. Problem and taxonomy, baseline evaluation (RQ1-1, RQ1-2), the proposed VC-VLA architecture, simulated and real-world evaluation.">
   <meta name="author" content="Francesco Rosa">
   <meta name="theme-color" content="#0f2540">
 
@@ -46,15 +46,16 @@
     <!-- ============ HERO ============ -->
     <section class="hero-report">
       <div class="hero-inner">
-        <span class="hero-kicker"><i class="fas fa-flask"></i>&nbsp; Post-Doc Activity Report · First six-month period</span>
-        <h1 class="hero-title">Activity Report</h1>
+        <span class="hero-kicker"><i class="fas fa-flask"></i>&nbsp; Post-Doc Activity </span>
+        <h1 class="hero-title">REASONED</h1>
         <p class="hero-project-title">
-          <span class="acronym">REASONED</span>: Robots lEarn tASks ObserviNg vidEo Demonstration
+          Robots lEarn tASks ObserviNg vidEo Demonstration
         </p>
         <p class="hero-meta"><strong>Francesco Rosa</strong>, Ph.D., Post-Doctoral Researcher</p>
         <p class="hero-meta">Supervisor: <strong>Prof. Mario Vento</strong></p>
-        <p class="hero-meta">Dipartimento di Ingegneria dell'Informazione ed Elettrica e Matematica Applicata (DIEM),
-          Università degli Studi di Salerno</p>
+        <p class="hero-meta">Department of Information Engineering and Electrical Engineering and Applied Mathematics
+          (DIEM),
+          University of Salerno</p>
         <p class="hero-meta">Scientific-Disciplinary Group 09/IINF-05 · Last updated 26 September 2026</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#baselines"><i class="fas fa-chart-bar"></i> Baseline results</a>
@@ -118,7 +119,8 @@
 
         <div class="figure-grid cols-3">
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/mimicplay_architecture.png" alt="Mimic-Play architecture" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/mimicplay_architecture.png"
+                alt="Mimic-Play architecture" loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag is-video">Video-conditioned</span>
               <p class="figure-title">Hand-tracking</p>
@@ -128,7 +130,8 @@
             </div>
           </div>
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/cod.png" alt="COD-Policy architecture" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/cod.png" alt="COD-Policy architecture"
+                loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag is-video">Video-conditioned</span>
               <p class="figure-title">Object-centric</p>
@@ -138,7 +141,8 @@
             </div>
           </div>
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/osvi-awda.png" alt="OSVI-AWDA architecture" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/osvi-awda.png" alt="OSVI-AWDA architecture"
+                loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag is-video">Video-conditioned</span>
               <p class="figure-title">End-to-end</p>
@@ -148,7 +152,8 @@
             </div>
           </div>
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/tiny_vla.png" alt="TinyVLA-H architecture" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/tiny_vla.png" alt="TinyVLA-H architecture"
+                loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag">Language-conditioned</span>
               <p class="figure-title">Vision-Language-Action</p>
@@ -158,7 +163,8 @@
             </div>
           </div>
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/vla_jepa.png" alt="VLA-JEPA architecture" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/vla_jepa.png" alt="VLA-JEPA architecture"
+                loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag">Language-conditioned</span>
               <p class="figure-title">World-Action Model</p>
@@ -168,7 +174,8 @@
             </div>
           </div>
           <div class="figure-card">
-            <div class="thumb"><img src="static/images/main-project/interleave_vla.png" alt="Interleave-VLA overview" loading="lazy"></div>
+            <div class="thumb"><img src="static/images/main-project/interleave_vla.png" alt="Interleave-VLA overview"
+                loading="lazy"></div>
             <div class="figure-cap">
               <span class="figure-tag">Image-text-conditioned</span>
               <p class="figure-title">Interleave-VLA</p>
@@ -190,7 +197,8 @@
           incorrect bin).
         </p>
         <div class="figure-card is-centered">
-          <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario" loading="lazy">
+          <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario"
+            loading="lazy">
           <p class="figure-cap">The simulated evaluation scenario: four colored objects and four fixed bins.</p>
         </div>
       </div>
@@ -215,20 +223,40 @@
           <strong>Hand-tracking baseline.</strong> Mimic-Play was trained under three increasingly challenging
           settings: a <em>fixed shared region</em> (demonstrator and robot share the spawn region, objects always in
           the same place), a <em>variable shared region</em> (objects in any of four locations), and <em>different
-          regions</em> (demonstrator and robot operate from different spawn regions).
+            regions</em> (demonstrator and robot operate from different spawn regions).
         </p>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Setting</th><th>Reach</th><th>Pick</th><th>Success</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Fixed shared region</td><td>0.708 ± 0.012</td><td>0.456 ± 0.018</td><td><b>0.325 ± 0.010</b></td></tr>
-                    <tr><td>Variable shared region</td><td>0.431 ± 0.000</td><td>0.312 ± 0.000</td><td>0.288 ± 0.005</td></tr>
-                    <tr><td>Different regions</td><td>0.277 ± 0.024</td><td>0.190 ± 0.012</td><td>0.173 ± 0.011</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Setting</th>
+                <th>Reach</th>
+                <th>Pick</th>
+                <th>Success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fixed shared region</td>
+                <td>0.708 ± 0.012</td>
+                <td>0.456 ± 0.018</td>
+                <td><b>0.325 ± 0.010</b></td>
+              </tr>
+              <tr>
+                <td>Variable shared region</td>
+                <td>0.431 ± 0.000</td>
+                <td>0.312 ± 0.000</td>
+                <td>0.288 ± 0.005</td>
+              </tr>
+              <tr>
+                <td>Different regions</td>
+                <td>0.277 ± 0.024</td>
+                <td>0.190 ± 0.012</td>
+                <td>0.173 ± 0.011</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <div class="figure-card mt-2">
           <img src="static/images/main-project/mimic_play_example.jpg" alt="Mimic-Play failure mode" loading="lazy">
           <p class="figure-cap">Mimic-Play failure mode with different spawn regions: the gripper trajectory predicted
@@ -247,30 +275,124 @@
           environment initializations, together with the prior each method relies on.
         </p>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Model</th><th>Priors</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.O.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="group"><td colspan="6">Hand-tracking</td></tr>
-                    <tr><td>Mimic-Play</td><td>VAE-predicted robot-space trajectory from the human hand</td><td>0.27</td><td>0.19</td><td>0.17</td><td>0.45</td></tr>
-                    <tr class="group"><td colspan="6">End-to-end</td></tr>
-                    <tr><td>MOSAIC</td><td>No task-specific prior</td><td>0.29</td><td>0.22</td><td>0.21</td><td>0.63</td></tr>
-                    <tr><td>OSVI-AWDA</td><td>Motor-skill primitives for moving and picking</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
-                    <tr class="group"><td colspan="6">Object-centric</td></tr>
-                    <tr><td>CTOD-Policy</td><td>Conditioned-Object Detector on the target object</td><td>0.99</td><td>0.95</td><td>0.60</td><td>0.00</td></tr>
-                    <tr><td>COD-Policy</td><td>Conditioned-Object Detector on all task objects</td><td>1.00</td><td>0.95</td><td>0.93</td><td>0.00</td></tr>
-                    <tr class="group"><td colspan="6">World-Action Model</td></tr>
-                    <tr><td>VLA-JEPA</td><td>No task-specific prior</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
-                    <tr><td>Mimic-Video</td><td>No task-specific prior</td><td>0.87</td><td>0.67</td><td>0.65</td><td>0.00</td></tr>
-                    <tr class="group"><td colspan="6">VLA</td></tr>
-                    <tr><td>OpenVLA-OFT</td><td>No task-specific prior</td><td>0.99</td><td>0.99</td><td>0.97</td><td>0.00</td></tr>
-                    <tr><td>TinyVLA-H</td><td>No task-specific prior</td><td>1.00</td><td>0.98</td><td>0.96</td><td>0.00</td></tr>
-                    <tr><td>MolmoAct2</td><td>No task-specific prior</td><td>0.94</td><td>0.84</td><td>0.80</td><td>0.00</td></tr>
-                    <tr><td>Interleave-VLA</td><td>Visual description of target objects</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.00</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Priors</th>
+                <th>Reach</th>
+                <th>Pick</th>
+                <th>Success</th>
+                <th>W.O.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group">
+                <td colspan="6">Hand-tracking</td>
+              </tr>
+              <tr>
+                <td>Mimic-Play</td>
+                <td>VAE-predicted robot-space trajectory from the human hand</td>
+                <td>0.27</td>
+                <td>0.19</td>
+                <td>0.17</td>
+                <td>0.45</td>
+              </tr>
+              <tr class="group">
+                <td colspan="6">End-to-end</td>
+              </tr>
+              <tr>
+                <td>MOSAIC</td>
+                <td>No task-specific prior</td>
+                <td>0.29</td>
+                <td>0.22</td>
+                <td>0.21</td>
+                <td>0.63</td>
+              </tr>
+              <tr>
+                <td>OSVI-AWDA</td>
+                <td>Motor-skill primitives for moving and picking</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+              </tr>
+              <tr class="group">
+                <td colspan="6">Object-centric</td>
+              </tr>
+              <tr>
+                <td>CTOD-Policy</td>
+                <td>Conditioned-Object Detector on the target object</td>
+                <td>0.99</td>
+                <td>0.95</td>
+                <td>0.60</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>COD-Policy</td>
+                <td>Conditioned-Object Detector on all task objects</td>
+                <td>1.00</td>
+                <td>0.95</td>
+                <td>0.93</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="group">
+                <td colspan="6">World-Action Model</td>
+              </tr>
+              <tr>
+                <td>VLA-JEPA</td>
+                <td>No task-specific prior</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>Mimic-Video</td>
+                <td>No task-specific prior</td>
+                <td>0.87</td>
+                <td>0.67</td>
+                <td>0.65</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="group">
+                <td colspan="6">VLA</td>
+              </tr>
+              <tr>
+                <td>OpenVLA-OFT</td>
+                <td>No task-specific prior</td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td>0.97</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>TinyVLA-H</td>
+                <td>No task-specific prior</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.96</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>MolmoAct2</td>
+                <td>No task-specific prior</td>
+                <td>0.94</td>
+                <td>0.84</td>
+                <td>0.80</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>Interleave-VLA</td>
+                <td>Visual description of target objects</td>
+                <td>1.00</td>
+                <td>0.96</td>
+                <td>0.83</td>
+                <td>0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
           MOSAIC mostly fails to identify the task-relevant object (W.O. 0.63), while the object-centric methods
           eliminate wrong-object failures entirely. OSVI-AWDA and VLA-JEPA reach a perfect Success rate, and the VLA
@@ -283,21 +405,24 @@
           RQ1 is decomposed into two robustness axes, each evaluated through two complementary scenarios. Every
           scenario is reported under <strong>Training-Distribution (TD)</strong> settings (task variations seen in
           training, with different environment initializations) and <strong>Out-of-Training-Distribution
-          (OTD)</strong> settings (task variations never seen in training).
+            (OTD)</strong> settings (task variations never seen in training).
         </p>
         <div class="figure-card is-centered">
-          <img src="static/images/main-project/robustness_levels.png" alt="Hierarchy of RQ1 robustness levels" loading="lazy">
+          <img src="static/images/main-project/robustness_levels.png" alt="Hierarchy of RQ1 robustness levels"
+            loading="lazy">
           <p class="figure-cap">RQ1-1 (task level): novel task combinations and novel object instances. RQ1-2 (spatial
             level): known-but-different region and unseen position.</p>
         </div>
         <div class="figure-grid cols-2">
           <div class="figure-card">
-            <img src="static/images/main-project/test_scenario_1.png" alt="RQ1-1 Scenario 1: novel task configurations" loading="lazy">
+            <img src="static/images/main-project/test_scenario_1.png" alt="RQ1-1 Scenario 1: novel task configurations"
+              loading="lazy">
             <p class="figure-cap"><strong>Scenario #1: novel task configurations.</strong> Object-color / target-bin
               combinations not seen during training; the individual objects and bins are all known.</p>
           </div>
           <div class="figure-card">
-            <img src="static/images/main-project/test_scenario_2.png" alt="RQ1-1 Scenario 2: novel object instances" loading="lazy">
+            <img src="static/images/main-project/test_scenario_2.png" alt="RQ1-1 Scenario 2: novel object instances"
+              loading="lazy">
             <p class="figure-cap"><strong>Scenario #2: novel object instances.</strong> The robot must manipulate an
               object that was present in the training environment but never used as a manipulation target.</p>
           </div>
@@ -306,49 +431,233 @@
         <h4 class="minor-head">Scenario #1: novel task configurations</h4>
         <p class="table-note" style="margin-top:0;">TD: 12 variations × 10 runs; OTD: 4 variations × 30 runs.</p>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.95</td><td>0.95</td><td>0.05</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.93</td><td>0.90</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.05</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99</td><td>0.95</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.99</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.94</td><td>0.87</td><td>0.00</td><td>0.05</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.86</td><td>0.87</td><td>0.00</td><td>0.08</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.93</td><td>0.84</td><td>0.00</td><td>0.09</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.92</td><td>0.78</td><td>0.00</td><td>0.15</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Cmd.</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">OSVI-AWDA</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.95</td>
+                <td>0.95</td>
+                <td>0.05</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">COD-Policy</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>0.93</td>
+                <td>0.90</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.05</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">OpenVLA-OFT †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td>0.95</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.99</td>
+                <td>0.98</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">TinyVLA-H †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.94</td>
+                <td>0.87</td>
+                <td>0.00</td>
+                <td>0.05</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.86</td>
+                <td>0.87</td>
+                <td>0.00</td>
+                <td>0.08</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">Interleave-VLA</td>
+                <td rowspan="2">Interl.</td>
+                <td class="setting">TD</td>
+                <td>0.93</td>
+                <td>0.84</td>
+                <td>0.00</td>
+                <td>0.09</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.92</td>
+                <td>0.78</td>
+                <td>0.00</td>
+                <td>0.15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h4 class="minor-head">Scenario #2: novel object instances</h4>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.00</td><td>0.00</td><td>0.98</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.90</td><td>0.90</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.97</td><td>0.88</td><td>0.00</td><td>0.01</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.99</td><td>0.92</td><td>0.00</td><td>0.01</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.86</td><td>0.77</td><td>0.00</td><td>0.08</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.00</td><td>0.00</td><td>0.77</td><td>0.00</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.97</td><td><b>0.97</b></td><td>0.02</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.98</td><td>0.95</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.94</td><td>0.89</td><td>0.00</td><td>0.05</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Cmd.</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">OSVI-AWDA</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.98</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">COD-Policy</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>0.90</td>
+                <td>0.90</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">OpenVLA-OFT †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.97</td>
+                <td>0.88</td>
+                <td>0.00</td>
+                <td>0.01</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.99</td>
+                <td>0.92</td>
+                <td>0.00</td>
+                <td>0.01</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">TinyVLA-H †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.86</td>
+                <td>0.77</td>
+                <td>0.00</td>
+                <td>0.08</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.77</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.97</td>
+                <td><b>0.97</b></td>
+                <td>0.02</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">Interleave-VLA</td>
+                <td rowspan="2">Interl.</td>
+                <td class="setting">TD</td>
+                <td>0.98</td>
+                <td>0.95</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.94</td>
+                <td>0.89</td>
+                <td>0.00</td>
+                <td>0.05</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">P.: Pick; S.: Success; W.O.: Success on Wrong Object; W.B.: Success on Wrong Bin.
           † Language-conditioned upper-bound references, conditioned on ground-truth instructions. Interl.:
           interleaved image-text instruction.</p>
@@ -361,89 +670,259 @@
           the architecture family.
         </p>
 
-        <h3 class="sub-head">RQ1-2: Spatial-level robustness <span class="status-badge"><i class="fas fa-circle-notch"></i> Evaluation in progress</span></h3>
+        <h3 class="sub-head">RQ1-2: Spatial-level robustness</h3>
         <p class="section-lead">
           Can the baselines operate correctly when the object is placed in spatial configurations not encountered
           during training? In <strong>Scenario #1</strong>, for each object color one spawn region is withheld during
-          training, while that region stays valid for the other colors: robustness here means the training set does
-          not need to cover every spawn configuration for every task. In <strong>Scenario #2</strong>, the same spawn
-          region is removed for all colors, so the object appears in a position never observed during training.
-          COD-Policy and Interleave-VLA results are still being collected.
+          training, while that region stays valid for the other colors. The model must recombine color-region
+          associations seen in training: if it succeeds, the training set does not need to cover every spawn
+          configuration for every task. In <strong>Scenario #2</strong>, the same spawn region (s<sub>2</sub>) is
+          removed for all colors, so the object appears in a position never observed during training.
         </p>
-        <div class="figure-grid cols-2">
-          <div class="figure-card">
-            <img src="static/images/main-project/spawn_lv_1_traj_distribution_horizontal.jpg" alt="Trajectory-endpoint density per box color, Scenario 1" loading="lazy">
-            <p class="figure-cap"><strong>Scenario #1.</strong> Trajectory-endpoint density per box color. Dashed green
-              boxes mark the four bin-aligned spawn regions; for each color, one region is withheld during training and
-              used for testing.</p>
-          </div>
-          <div class="figure-card">
-            <img src="static/images/main-project/spawn_lv_2_traj_distribution.jpg" alt="Cumulative trajectory distribution, Scenario 2" loading="lazy">
-            <p class="figure-cap"><strong>Scenario #2.</strong> Cumulative trajectory distribution with spawn region
-              s<sub>2</sub> removed; points still appear inside it as the robot passes through on its way to the bin.</p>
-          </div>
-          <div class="figure-card">
-            <img src="static/images/main-project/spatial_lv1_example.jpg" alt="Training/test example, Scenario 1" loading="lazy">
-            <p class="figure-cap">Scenario #1 example: for the same instruction, the object is spawned at a slightly
-              different position within the same known region.</p>
-          </div>
-          <div class="figure-card">
-            <img src="static/images/main-project/spatial_lv2_example.jpg" alt="Training/test example, Scenario 2" loading="lazy">
-            <p class="figure-cap">Scenario #2 example: the object is spawned at a novel position, never observed during
-              training.</p>
-          </div>
-        </div>
 
         <h4 class="minor-head">Scenario #1: known but different region</h4>
+        <div class="figure-card">
+          <img src="static/images/main-project/spawn_lv_1_traj_distribution_horizontal.jpg"
+            alt="Trajectory-endpoint density per box color, Scenario 1" loading="lazy"
+            style="max-width: 820px; margin: 0 auto; padding: 0.8rem;">
+          <img src="static/images/main-project/spatial_lv1_example.jpg"
+            alt="Training/test example, Scenario 1" loading="lazy" style="border-top: 1px solid var(--line);">
+          <p class="figure-cap"><strong>Top:</strong> trajectory-endpoint density, reported separately for each box
+            color. Dashed green boxes mark the four bin-aligned spawn regions s<sub>1</sub>–s<sub>4</sub>; for each
+            color, one region is withheld during training and used for testing. <strong>Bottom:</strong> training/test
+            example: for the same instruction, the target object is spawned at a slightly different position within the
+            same known region, requiring the policy to remain robust to this local spatial perturbation.</p>
+        </div>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99</td><td><b>0.99</b></td><td>0.01</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.49</td><td>0.49</td><td>0.39</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99</td><td>0.97</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.98</td><td>0.81</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.97</td><td>0.96</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.97</td><td>0.96</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.98</td><td><b>0.97</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Cmd.</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">OSVI-AWDA</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td><b>0.99</b></td>
+                <td>0.01</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.49</td>
+                <td>0.49</td>
+                <td>0.39</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">OpenVLA-OFT †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td>0.97</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.98</td>
+                <td>0.81</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">TinyVLA-H †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.97</td>
+                <td>0.96</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.97</td>
+                <td>0.96</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">VLA-JEPA †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.98</td>
+                <td><b>0.97</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">Interleave-VLA</td>
+                <td rowspan="2">Interl.</td>
+                <td class="setting">TD</td>
+                <td>0.97</td>
+                <td>0.89</td>
+                <td>0.00</td>
+                <td>0.08</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.95</td>
+                <td>0.82</td>
+                <td>0.00</td>
+                <td>0.13</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="section-lead" style="margin-top:1rem;">
+          In TD all methods score high, with Interleave-VLA slightly behind (0.89). Out of distribution, OSVI-AWDA
+          collapses to 0.49 Success with a Wrong-Object rate of 0.39: its waypoint planner cannot recombine the
+          color-region association once the withheld region is tested. The language-conditioned models transfer this
+          recombination almost perfectly: TinyVLA-H is unaffected (0.96), VLA-JEPA drops marginally to 0.97,
+          OpenVLA-OFT to 0.81, and Interleave-VLA to 0.82, with a slightly higher Wrong-Bin rate (0.13).
+        </p>
 
         <h4 class="minor-head">Scenario #2: unseen position</h4>
-        <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99</td><td><b>0.99</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.30</td><td>0.30</td><td>0.49</td><td>0.49</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.95</td><td>0.71</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.49</td><td><b>0.37</b></td><td>0.02</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.87</td><td>0.86</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.01</td><td>0.01</td><td>0.47</td><td>0.00</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99</td><td><b>0.99</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.32</td><td>0.31</td><td>0.37</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td colspan="4" class="pending">in progress</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td colspan="4" class="pending">in progress</td></tr>
-                </tbody>
-            </table>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/spawn_lv_2_traj_distribution.jpg"
+              alt="Cumulative trajectory distribution, Scenario 2" loading="lazy">
+            <p class="figure-cap">Cumulative trajectory distribution with spawn region s<sub>2</sub> removed; points
+              still appear inside it as the robot passes through on its way to the bin.</p>
           </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/spatial_lv2_example.jpg"
+              alt="Training/test example, Scenario 2" loading="lazy">
+            <p class="figure-cap">Training/test example: for the same instruction, the object is spawned at a novel
+              position, never observed during training.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Cmd.</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">OSVI-AWDA</td>
+                <td rowspan="2">Video</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td><b>0.99</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.30</td>
+                <td>0.30</td>
+                <td>0.49</td>
+                <td>0.49</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">OpenVLA-OFT †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.95</td>
+                <td>0.71</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.49</td>
+                <td>0.37</td>
+                <td>0.02</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">TinyVLA-H †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.87</td>
+                <td>0.86</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.01</td>
+                <td>0.01</td>
+                <td>0.47</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">VLA-JEPA †</td>
+                <td rowspan="2">Lang.</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td><b>0.99</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.32</td>
+                <td>0.31</td>
+                <td>0.37</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">Interleave-VLA</td>
+                <td rowspan="2">Interl.</td>
+                <td class="setting">TD</td>
+                <td>0.89</td>
+                <td>0.86</td>
+                <td>0.00</td>
+                <td>0.03</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.92</td>
+                <td><b>0.77</b></td>
+                <td>0.00</td>
+                <td>0.12</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">† Language-conditioned upper-bound references, conditioned on ground-truth instructions.
+          Interl.: interleaved image-text instruction.</p>
         <p class="section-lead" style="margin-top:1rem;">
-          Unlike RQ1-1, spatial-level robustness is <strong>not</strong> solved by large-scale pre-training alone. The
-          language-conditioned models handle a known-but-different region well, but every baseline, VLA-JEPA included,
-          degrades sharply once the object is placed in a genuinely unseen position (OTD Success of 0.37 or below),
-          with high Wrong-Object or Wrong-Bin rates. This gap is a key motivation for the proposal below.
+          Scenario #2 is substantially harder for every method. OSVI-AWDA drops to 0.30, with balanced Wrong-Object and
+          Wrong-Bin errors (0.49 each), a complete breakdown of both object and bin identification. TinyVLA-H collapses
+          to 0.01 (Wrong-Object 0.47), while VLA-JEPA and OpenVLA-OFT fall to 0.31 and 0.37. <strong>Interleave-VLA is
+            the most robust baseline here</strong>, keeping 0.77 Success with no wrong-object errors.
+        </p>
+        <p class="section-lead">
+          Recombining known spatial concepts (Scenario #1) is therefore handled well by large-scale pre-training, but
+          extrapolating to a genuinely novel position (Scenario #2) is not, even for the strongest language-conditioned
+          upper bounds. <strong>Spatial extrapolation is the primary open challenge of RQ1-2</strong>, and a key
+          motivation for the proposal below.
         </p>
       </div>
     </section>
@@ -461,7 +940,7 @@
             Framed as <em>one-shot visual imitation</em>, our setting asks the robot to execute a novel task instance
             from a <em>single</em> unstructured human video, with no paired action labels or kinematic data. Following
             the insight that one-shot visual imitation benefits from <strong>separating task inference (what to do)
-            from task execution (how to do it)</strong>, VC-VLA extends language-conditioned policies to the
+              from task execution (how to do it)</strong>, VC-VLA extends language-conditioned policies to the
             human-video-conditioned setting.
           </p>
         </div>
@@ -509,10 +988,22 @@
         </div>
 
         <div class="stat-row">
-          <div class="stat-card"><div class="stat-num">1.00</div><div class="stat-label">Color accuracy<br>(both prompts)</div></div>
-          <div class="stat-card"><div class="stat-num">0.91</div><div class="stat-label">Bin accuracy<br>strong a-priori prompt</div></div>
-          <div class="stat-card"><div class="stat-num">0.90</div><div class="stat-label">Bin accuracy<br>free-placement prompt</div></div>
-          <div class="stat-card"><div class="stat-num">48</div><div class="stat-label">Samples per<br>prompt variant</div></div>
+          <div class="stat-card">
+            <div class="stat-num">1.00</div>
+            <div class="stat-label">Color accuracy<br>(both prompts)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0.91</div>
+            <div class="stat-label">Bin accuracy<br>strong a-priori prompt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">0.90</div>
+            <div class="stat-label">Bin accuracy<br>free-placement prompt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num">48</div>
+            <div class="stat-label">Samples per<br>prompt variant</div>
+          </div>
         </div>
         <p class="table-note">
           Object identification is solved regardless of how much scene information the model receives. Residual errors
@@ -542,20 +1033,62 @@
         <p class="section-lead">Each backbone with a ground-truth instruction, followed by its VC-VLA counterpart,
           which receives the Cosmos-Reason V2 caption instead.</p>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Model</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>OpenVLA-OFT</td><td>0.99</td><td>0.99</td><td>0.97</td><td>0.00</td></tr>
-                    <tr class="proposed"><td>Cosmos + OpenVLA-OFT</td><td>0.99</td><td>0.99</td><td>0.88</td><td>0.09</td></tr>
-                    <tr><td>TinyVLA-H</td><td>1.00</td><td>0.98</td><td>0.96</td><td>0.00</td></tr>
-                    <tr class="proposed"><td>Cosmos + TinyVLA-H</td><td>1.00</td><td>0.96</td><td>0.83</td><td>0.12</td></tr>
-                    <tr><td>VLA-JEPA</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
-                    <tr class="proposed"><td>Cosmos + VLA-JEPA</td><td>0.99</td><td>0.99</td><td><b>0.90</b></td><td>0.10</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Reach</th>
+                <th>Pick</th>
+                <th>Success</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OpenVLA-OFT</td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td>0.97</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="proposed">
+                <td>Cosmos + OpenVLA-OFT</td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td>0.88</td>
+                <td>0.09</td>
+              </tr>
+              <tr>
+                <td>TinyVLA-H</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.96</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="proposed">
+                <td>Cosmos + TinyVLA-H</td>
+                <td>1.00</td>
+                <td>0.96</td>
+                <td>0.83</td>
+                <td>0.12</td>
+              </tr>
+              <tr>
+                <td>VLA-JEPA</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+              </tr>
+              <tr class="proposed">
+                <td>Cosmos + VLA-JEPA</td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td><b>0.90</b></td>
+                <td>0.10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
           For every backbone, the Success drop introduced by VC-VLA is entirely explained by the Wrong-Bin rate, with
           no extra wrong-object failures: captioning ambiguity is confined to target-bin identification. VC-VLA is
@@ -565,30 +1098,150 @@
 
         <h3 class="sub-head">RQ1-1: Task-level robustness</h3>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>1.00</td><td>1.00</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Cosmos + OpenVLA-OFT</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>0.98</td><td>0.86</td><td>0.00</td><td>0.07</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.99</td><td>0.90</td><td>0.00</td><td>0.08</td></tr>
-                    <tr class="td-row"><td rowspan="2">Cosmos + TinyVLA-H</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>0.96</td><td>0.75</td><td>0.00</td><td>0.14</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.92</td><td>0.74</td><td>0.00</td><td>0.18</td></tr>
-                    <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>1.00</td><td><b>0.88</b></td><td>0.00</td><td>0.11</td></tr>
-                    <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>1.00</td><td><b>0.93</b></td><td>0.00</td><td>0.06</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>1.00</td><td>1.00</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.97</td><td>0.97</td><td>0.02</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Cosmos + OpenVLA-OFT</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>0.97</td><td>0.82</td><td>0.00</td><td>0.07</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.98</td><td>0.80</td><td>0.00</td><td>0.08</td></tr>
-                    <tr class="td-row"><td rowspan="2">Cosmos + TinyVLA-H</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>0.85</td><td>0.73</td><td>0.00</td><td>0.10</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.00</td><td>0.00</td><td>0.65</td><td>0.07</td></tr>
-                    <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>1.00</td><td><b>0.88</b></td><td>0.00</td><td>0.12</td></tr>
-                    <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.99</td><td><b>0.91</b></td><td>0.02</td><td>0.08</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Pipeline</th>
+                <th>Scenario</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA † (reference)</td>
+                <td rowspan="2">#1 task combo</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">Cosmos + OpenVLA-OFT</td>
+                <td rowspan="2">#1 task combo</td>
+                <td class="setting">TD</td>
+                <td>0.98</td>
+                <td>0.86</td>
+                <td>0.00</td>
+                <td>0.07</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.99</td>
+                <td>0.90</td>
+                <td>0.00</td>
+                <td>0.08</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">Cosmos + TinyVLA-H</td>
+                <td rowspan="2">#1 task combo</td>
+                <td class="setting">TD</td>
+                <td>0.96</td>
+                <td>0.75</td>
+                <td>0.00</td>
+                <td>0.14</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.92</td>
+                <td>0.74</td>
+                <td>0.00</td>
+                <td>0.18</td>
+              </tr>
+              <tr class="proposed td-row alt">
+                <td rowspan="2">Cosmos + VLA-JEPA</td>
+                <td rowspan="2">#1 task combo</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>0.88</b></td>
+                <td>0.00</td>
+                <td>0.11</td>
+              </tr>
+              <tr class="proposed otd-row alt">
+                <td class="setting">OTD</td>
+                <td>1.00</td>
+                <td><b>0.93</b></td>
+                <td>0.00</td>
+                <td>0.06</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA † (reference)</td>
+                <td rowspan="2">#2 novel object</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.97</td>
+                <td>0.97</td>
+                <td>0.02</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">Cosmos + OpenVLA-OFT</td>
+                <td rowspan="2">#2 novel object</td>
+                <td class="setting">TD</td>
+                <td>0.97</td>
+                <td>0.82</td>
+                <td>0.00</td>
+                <td>0.07</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.98</td>
+                <td>0.80</td>
+                <td>0.00</td>
+                <td>0.08</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">Cosmos + TinyVLA-H</td>
+                <td rowspan="2">#2 novel object</td>
+                <td class="setting">TD</td>
+                <td>0.85</td>
+                <td>0.73</td>
+                <td>0.00</td>
+                <td>0.10</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>0.65</td>
+                <td>0.07</td>
+              </tr>
+              <tr class="proposed td-row alt">
+                <td rowspan="2">Cosmos + VLA-JEPA</td>
+                <td rowspan="2">#2 novel object</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>0.88</b></td>
+                <td>0.00</td>
+                <td>0.12</td>
+              </tr>
+              <tr class="proposed otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.99</td>
+                <td><b>0.91</b></td>
+                <td>0.02</td>
+                <td>0.08</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
           All three pipelines keep strong OTD performance on novel task configurations (0.74–0.93) with zero
           wrong-object errors, so VC-VLA carries language-conditioned robustness over to the human-video-conditioned
@@ -597,30 +1250,102 @@
           inference. The best pipeline is <strong>Cosmos + VLA-JEPA</strong>.
         </p>
 
-        <h3 class="sub-head">RQ1-2: Spatial-level robustness <span class="status-badge"><i class="fas fa-circle-notch"></i> Preliminary</span></h3>
-        <p class="section-lead">Evaluated so far with the best pipeline, Cosmos + VLA-JEPA.</p>
+        <h3 class="sub-head">RQ1-2: Spatial-level robustness</h3>
+        <p class="section-lead">Evaluated with the best pipeline, Cosmos + VLA-JEPA.</p>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>1.00</td><td>0.98</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.98</td><td>0.97</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>0.99</td><td>0.79</td><td>0.00</td><td>0.20</td></tr>
-                    <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.99</td><td>0.79</td><td>0.00</td><td>0.20</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#2 unseen position</td><td class="setting">TD</td><td>0.99</td><td>0.99</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.32</td><td>0.31</td><td>0.37</td><td>0.00</td></tr>
-                    <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#2 unseen position</td><td class="setting">TD</td><td>1.00</td><td>0.79</td><td>0.00</td><td>0.20</td></tr>
-                    <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.34</td><td>0.26</td><td>0.31</td><td>0.07</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Pipeline</th>
+                <th>Scenario</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA † (reference)</td>
+                <td rowspan="2">#1 known region</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>0.98</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.98</td>
+                <td>0.97</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="proposed td-row alt">
+                <td rowspan="2">Cosmos + VLA-JEPA</td>
+                <td rowspan="2">#1 known region</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td>0.79</td>
+                <td>0.00</td>
+                <td>0.20</td>
+              </tr>
+              <tr class="proposed otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.99</td>
+                <td>0.79</td>
+                <td>0.00</td>
+                <td>0.20</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA † (reference)</td>
+                <td rowspan="2">#2 unseen position</td>
+                <td class="setting">TD</td>
+                <td>0.99</td>
+                <td>0.99</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.32</td>
+                <td>0.31</td>
+                <td>0.37</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="proposed td-row alt">
+                <td rowspan="2">Cosmos + VLA-JEPA</td>
+                <td rowspan="2">#2 unseen position</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td>0.79</td>
+                <td>0.00</td>
+                <td>0.20</td>
+              </tr>
+              <tr class="proposed otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.34</td>
+                <td>0.26</td>
+                <td>0.31</td>
+                <td>0.07</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
-          † Language-conditioned upper bound (ground-truth instruction), shown for reference. The results mirror the
-          baselines: performance holds for a known-but-different region (0.79 in both TD and OTD, with the gap to the
-          upper bound again due to wrong bins), but drops sharply for genuinely unseen positions (0.79 → 0.26).
-          Spatial-level robustness remains the key open problem of this activity.
+          † Language-conditioned upper bound (ground-truth instruction), shown for reference.
+        </p>
+        <p class="section-lead" style="margin-top:1rem;">
+          In Scenario #1, Cosmos + VLA-JEPA reaches 0.79 Success in both TD and OTD, with an unchanged Wrong-Bin rate
+          of 0.20: <strong>zero degradation</strong> between TD and OTD. Its residual errors come entirely from the
+          captioning module, and the underlying policy is fully robust to this form of spatial recombination.
+        </p>
+        <p class="section-lead">
+          In Scenario #2 the pipeline mirrors the single-model collapse, falling from 0.79 to 0.26 (Wrong-Object 0.31,
+          Wrong-Bin 0.07). Once the target lies outside the training distribution, the failure mode shifts from the
+          captioning module to the policy itself: video-based conditioning inherits the robustness of its backbone
+          to spatial recombination, but not yet to spatial extrapolation.
         </p>
       </div>
     </section>
@@ -649,12 +1374,14 @@
         </p>
         <div class="figure-grid cols-2">
           <div class="figure-card">
-            <img src="static/images/main-project/workspace.jpg" alt="Real UR5e workspace compared to simulation" loading="lazy">
+            <img src="static/images/main-project/workspace.jpg" alt="Real UR5e workspace compared to simulation"
+              loading="lazy">
             <p class="figure-cap">Real UR5e workspace matched against its simulated counterpart, with corresponding
               third-view and wrist-camera viewpoints.</p>
           </div>
           <div class="figure-card">
-            <img src="static/images/main-project/box_placement.jpg" alt="Five spatial configurations used for data collection" loading="lazy">
+            <img src="static/images/main-project/box_placement.jpg"
+              alt="Five spatial configurations used for data collection" loading="lazy">
             <p class="figure-cap">Data-collection protocol: five spatial configurations of the colored boxes relative
               to the fixed four-bin layout.</p>
           </div>
@@ -679,24 +1406,96 @@
 
         <h3 class="sub-head">Baseline results</h3>
         <div class="table-wrap">
-            <table class="data-table tdotd">
-                <thead>
-                    <tr><th>Model</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
-                </thead>
-                <tbody>
-                    <tr class="td-row"><td rowspan="2">SeeDo (non-learning)</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td class="setting">TD</td><td>0.62</td><td>0.52</td><td>0.00</td><td>0.10</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.19</td><td>0.06</td><td>0.00</td><td>0.13</td></tr>
-                    <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td class="setting">TD</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.75</td><td>0.75</td><td>0.15</td><td>0.00</td></tr>
-                    <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td class="setting">TD</td><td>0.75</td><td>0.67</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row alt"><td class="setting">OTD</td><td>0.75</td><td>0.62</td><td>0.00</td><td>0.06</td></tr>
-                    <tr class="td-row"><td rowspan="2">VLA-JEPA</td><td class="setting">TD</td><td>0.67</td><td>0.67</td><td>0.00</td><td>0.00</td></tr>
-                    <tr class="otd-row"><td class="setting">OTD</td><td>0.81</td><td>0.75</td><td>0.00</td><td>0.00</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table tdotd">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Setting</th>
+                <th>P.</th>
+                <th>S.</th>
+                <th>W.O.</th>
+                <th>W.B.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="td-row">
+                <td rowspan="2">SeeDo (non-learning)</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">COD-Policy</td>
+                <td class="setting">TD</td>
+                <td>0.62</td>
+                <td>0.52</td>
+                <td>0.00</td>
+                <td>0.10</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.19</td>
+                <td>0.06</td>
+                <td>0.00</td>
+                <td>0.13</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">OSVI-AWDA</td>
+                <td class="setting">TD</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.75</td>
+                <td>0.75</td>
+                <td>0.15</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="td-row alt">
+                <td rowspan="2">Interleave-VLA</td>
+                <td class="setting">TD</td>
+                <td>0.75</td>
+                <td>0.67</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row alt">
+                <td class="setting">OTD</td>
+                <td>0.75</td>
+                <td>0.62</td>
+                <td>0.00</td>
+                <td>0.06</td>
+              </tr>
+              <tr class="td-row">
+                <td rowspan="2">VLA-JEPA</td>
+                <td class="setting">TD</td>
+                <td>0.67</td>
+                <td>0.67</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr class="otd-row">
+                <td class="setting">OTD</td>
+                <td>0.81</td>
+                <td>0.75</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">TD: 48 trajectories (4 runs × 12 task variations); OTD: 16 trajectories (4 runs × 4 task
           variations).</p>
         <p class="section-lead" style="margin-top:1rem;">
@@ -707,12 +1506,14 @@
         </p>
         <div class="figure-grid cols-2">
           <div class="figure-card">
-            <img src="static/images/main-project/osvi_awda_waypoints.jpg" alt="OSVI-AWDA attributed waypoints" loading="lazy">
+            <img src="static/images/main-project/osvi_awda_waypoints.jpg" alt="OSVI-AWDA attributed waypoints"
+              loading="lazy">
             <p class="figure-cap">OSVI-AWDA predicts attributed waypoints (Free-Space, Grasp, Carry, Drop) from the
               human video, executed through hand-crafted motor primitives.</p>
           </div>
           <div class="figure-card">
-            <img src="static/images/main-project/osvi_awda_grasp_refinment.jpg" alt="OSVI-AWDA grasp refinement" loading="lazy">
+            <img src="static/images/main-project/osvi_awda_grasp_refinment.jpg" alt="OSVI-AWDA grasp refinement"
+              loading="lazy">
             <p class="figure-cap">At the grasp waypoint, the a-priori-known object is localized in the wrist RGB-D view
               (contour, centroid, depth), relying on an accurate camera-to-robot calibration.</p>
           </div>
@@ -733,19 +1534,55 @@
           object only by its visible color and a generic object type, with and without distractor objects.
         </p>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Scene / metric</th><th>Prior-guided · Class</th><th>Prior-guided · Attribute</th><th>Generalized · Class</th><th>Generalized · Attribute</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>No distractors · all metrics</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
-                    <tr><td>Distractors · Accuracy</td><td>0.80</td><td>0.64</td><td><b>0.94</b></td><td><b>0.88</b></td></tr>
-                    <tr><td>Distractors · Precision</td><td>0.91</td><td>0.81</td><td><b>1.00</b></td><td><b>1.00</b></td></tr>
-                    <tr><td>Distractors · Recall</td><td>0.88</td><td>0.75</td><td><b>0.94</b></td><td><b>0.88</b></td></tr>
-                    <tr><td>Distractors · F1-score</td><td>0.89</td><td>0.78</td><td><b>0.97</b></td><td><b>0.93</b></td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Scene / metric</th>
+                <th>Prior-guided · Class</th>
+                <th>Prior-guided · Attribute</th>
+                <th>Generalized · Class</th>
+                <th>Generalized · Attribute</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>No distractors · all metrics</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+              </tr>
+              <tr>
+                <td>Distractors · Accuracy</td>
+                <td>0.80</td>
+                <td>0.64</td>
+                <td><b>0.94</b></td>
+                <td><b>0.88</b></td>
+              </tr>
+              <tr>
+                <td>Distractors · Precision</td>
+                <td>0.91</td>
+                <td>0.81</td>
+                <td><b>1.00</b></td>
+                <td><b>1.00</b></td>
+              </tr>
+              <tr>
+                <td>Distractors · Recall</td>
+                <td>0.88</td>
+                <td>0.75</td>
+                <td><b>0.94</b></td>
+                <td><b>0.88</b></td>
+              </tr>
+              <tr>
+                <td>Distractors · F1-score</td>
+                <td>0.89</td>
+                <td>0.78</td>
+                <td><b>0.97</b></td>
+                <td><b>0.93</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">Class: correct object type. Attribute: correct object type and color.</p>
         <p class="section-lead" style="margin-top:1rem;">
           Without distractors both prompts are perfect. With distractors, the prior-guided prompt, despite encoding
@@ -761,7 +1598,8 @@
         </p>
         <div class="figure-grid cols-2">
           <div class="figure-card">
-            <img src="static/images/main-project/real_pick_place.jpg" alt="Real-world cube pick-and-place" loading="lazy">
+            <img src="static/images/main-project/real_pick_place.jpg" alt="Real-world cube pick-and-place"
+              loading="lazy">
             <p class="figure-cap">Cube pick-and-place: pick a cube and place it into a storage bin.</p>
           </div>
           <div class="figure-card">
@@ -770,16 +1608,40 @@
           </div>
         </div>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Prompt</th><th>Box acc.</th><th>Bin acc.</th><th>Pick-and-place Success</th><th>Nut acc.</th><th>Peg acc.</th><th>Nut-assembly Success</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Generalized</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>0.00</td><td>0.00</td></tr>
-                    <tr><td>Tuned generalized</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td><b>1.00</b></td><td>0.00</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Prompt</th>
+                <th>Box acc.</th>
+                <th>Bin acc.</th>
+                <th>Pick-and-place Success</th>
+                <th>Nut acc.</th>
+                <th>Peg acc.</th>
+                <th>Nut-assembly Success</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Generalized</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>0.00</td>
+                <td>0.00</td>
+              </tr>
+              <tr>
+                <td>Tuned generalized</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td>1.00</td>
+                <td><b>1.00</b></td>
+                <td>0.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
           Prompt tuning raises peg localization from 0.00 to 1.00, yet nut-assembly success stays at 0.00: the
           remaining gap lies in the grasping and manipulation strategy, which lacks object-specific knowledge such as
@@ -795,20 +1657,55 @@
           noise level.
         </p>
         <div class="table-wrap">
-            <table class="data-table">
-                <thead>
-                    <tr><th>Translation noise (mm)</th><th>Rotation noise (°)</th><th>Success rate</th><th>Successful trials</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>0.0</td><td>0.00</td><td>100%</td><td>5/5</td></tr>
-                    <tr><td>1.0</td><td>0.10</td><td>100%</td><td>5/5</td></tr>
-                    <tr><td>3.0</td><td>0.25</td><td>100%</td><td>5/5</td></tr>
-                    <tr><td>5.0</td><td>1.00</td><td>40%</td><td>2/5</td></tr>
-                    <tr><td>10.0</td><td>2.00</td><td>0%</td><td>0/5</td></tr>
-                    <tr><td>25.0</td><td>5.00</td><td>0%</td><td>0/5</td></tr>
-                </tbody>
-            </table>
-          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Translation noise (mm)</th>
+                <th>Rotation noise (°)</th>
+                <th>Success rate</th>
+                <th>Successful trials</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.0</td>
+                <td>0.00</td>
+                <td>100%</td>
+                <td>5/5</td>
+              </tr>
+              <tr>
+                <td>1.0</td>
+                <td>0.10</td>
+                <td>100%</td>
+                <td>5/5</td>
+              </tr>
+              <tr>
+                <td>3.0</td>
+                <td>0.25</td>
+                <td>100%</td>
+                <td>5/5</td>
+              </tr>
+              <tr>
+                <td>5.0</td>
+                <td>1.00</td>
+                <td>40%</td>
+                <td>2/5</td>
+              </tr>
+              <tr>
+                <td>10.0</td>
+                <td>2.00</td>
+                <td>0%</td>
+                <td>0/5</td>
+              </tr>
+              <tr>
+                <td>25.0</td>
+                <td>5.00</td>
+                <td>0%</td>
+                <td>0/5</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <p class="table-note">
           SeeDo tolerates only a few millimeters and a fraction of a degree of calibration error, then collapses rather
           than degrading gracefully. Accurate calibration is a hard requirement for SeeDo, whereas VC-VLA, like
@@ -816,7 +1713,8 @@
           on a hand-crafted extrinsic calibration.
         </p>
 
-        <h3 class="sub-head">VC-VLA in the real world <span class="status-badge"><i class="fas fa-circle-notch"></i> In progress</span></h3>
+        <h3 class="sub-head">VC-VLA in the real world <span class="status-badge"><i class="fas fa-circle-notch"></i> In
+            progress</span></h3>
         <p class="section-lead">
           The real-world evaluation of the proposed pipeline (Cosmos-Reason V2 + VLA-JEPA) reuses the train and test
           task configurations of RQ1-1 Scenario #1, now instantiated on the real UR5e with the teleoperated dataset
