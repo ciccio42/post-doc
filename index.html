@@ -36,6 +36,7 @@
         <a href="#proposal">3. Proposal</a>
         <a href="#simulation">4. Simulation</a>
         <a href="#real-world">5. Real World</a>
+        <a href="#conclusion">6. Conclusion</a>
       </div>
     </div>
   </nav>
@@ -56,7 +57,9 @@
         <p class="hero-meta">Department of Information Engineering and Electrical Engineering and Applied Mathematics
           (DIEM),
           University of Salerno</p>
-        <p class="hero-meta">Scientific-Disciplinary Group 09/IINF-05 · Last updated 26 September 2026</p>
+        <p class="hero-meta">Scientific-Disciplinary Group 09/IINF-05</p>
+        <p class="hero-meta">Reporting period: <strong>1 January 2026 – 30 October 2026</strong> · Last updated 30
+          September 2026</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#baselines"><i class="fas fa-chart-bar"></i> Baseline results</a>
           <a class="btn btn-ghost" href="#proposal"><i class="fas fa-lightbulb"></i> Proposed architecture</a>
@@ -196,10 +199,19 @@
           an incorrect object), and <strong>Success on Wrong Bin</strong> (W.B., correct object placed in an
           incorrect bin).
         </p>
-        <div class="figure-card is-centered">
-          <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario"
-            loading="lazy">
-          <p class="figure-cap">The simulated evaluation scenario: four colored objects and four fixed bins.</p>
+        <div class="figure-grid cols-2">
+          <div class="figure-card">
+            <img src="static/images/main-project/experimental_scenario.png" alt="Pick-and-place evaluation scenario"
+              loading="lazy">
+            <p class="figure-cap">The manipulation scenario: the robot picks a colored object from the table and places
+              it into the bin specified by the human video demonstration.</p>
+          </div>
+          <div class="figure-card">
+            <img src="static/images/main-project/spawn_distribution.jpg" alt="Distribution of object spawn locations"
+              loading="lazy">
+            <p class="figure-cap">Distribution of object spawn locations in the robot workspace: each object can appear
+              in any of four locations, while each bin has a fixed position.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -225,6 +237,14 @@
           the same place), a <em>variable shared region</em> (objects in any of four locations), and <em>different
             regions</em> (demonstrator and robot operate from different spawn regions).
         </p>
+        <div class="figure-card is-centered">
+          <img src="static/images/main-project/mimic_play_inputs.jpg" alt="Inputs and output of the Mimic-Play latent planner"
+            loading="lazy">
+          <p class="figure-cap">Inputs and output of the latent planner. The current observation o<sub>t</sub> comes from
+            the robot vision system, while the goal image o<sub>g</sub> is extracted from the human video
+            demonstration. On the right, the gripper trajectory generated from the latent plan is projected onto the
+            current observation as a sequence of waypoints.</p>
+        </div>
         <div class="table-wrap">
           <table class="data-table">
             <thead>
@@ -277,127 +297,37 @@
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Priors</th>
-                <th>Reach</th>
-                <th>Pick</th>
-                <th>Success</th>
-                <th>W.O.</th>
-              </tr>
+              <tr><th>Model</th><th>Priors</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.O.</th></tr>
             </thead>
             <tbody>
-              <tr class="group">
-                <td colspan="6">Hand-tracking</td>
-              </tr>
-              <tr>
-                <td>Mimic-Play</td>
-                <td>VAE-predicted robot-space trajectory from the human hand</td>
-                <td>0.27</td>
-                <td>0.19</td>
-                <td>0.17</td>
-                <td>0.45</td>
-              </tr>
-              <tr class="group">
-                <td colspan="6">End-to-end</td>
-              </tr>
-              <tr>
-                <td>MOSAIC</td>
-                <td>No task-specific prior</td>
-                <td>0.29</td>
-                <td>0.22</td>
-                <td>0.21</td>
-                <td>0.63</td>
-              </tr>
-              <tr>
-                <td>OSVI-AWDA</td>
-                <td>Motor-skill primitives for moving and picking</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-              </tr>
-              <tr class="group">
-                <td colspan="6">Object-centric</td>
-              </tr>
-              <tr>
-                <td>CTOD-Policy</td>
-                <td>Conditioned-Object Detector on the target object</td>
-                <td>0.99</td>
-                <td>0.95</td>
-                <td>0.60</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>COD-Policy</td>
-                <td>Conditioned-Object Detector on all task objects</td>
-                <td>1.00</td>
-                <td>0.95</td>
-                <td>0.93</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="group">
-                <td colspan="6">World-Action Model</td>
-              </tr>
-              <tr>
-                <td>VLA-JEPA</td>
-                <td>No task-specific prior</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>Mimic-Video</td>
-                <td>No task-specific prior</td>
-                <td>0.87</td>
-                <td>0.67</td>
-                <td>0.65</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="group">
-                <td colspan="6">VLA</td>
-              </tr>
-              <tr>
-                <td>OpenVLA-OFT</td>
-                <td>No task-specific prior</td>
-                <td>0.99</td>
-                <td>0.99</td>
-                <td>0.97</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>TinyVLA-H</td>
-                <td>No task-specific prior</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.96</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>MolmoAct2</td>
-                <td>No task-specific prior</td>
-                <td>0.94</td>
-                <td>0.84</td>
-                <td>0.80</td>
-                <td>0.00</td>
-              </tr>
-              <tr>
-                <td>Interleave-VLA</td>
-                <td>Visual description of target objects</td>
-                <td>1.00</td>
-                <td>0.96</td>
-                <td>0.83</td>
-                <td>0.00</td>
-              </tr>
+              <tr class="group"><td colspan="6">End-to-end</td></tr>
+              <tr><td>MOSAIC</td><td>No task-specific prior</td><td>0.32 ± 0.15</td><td>0.26 ± 0.15</td><td>0.24 ± 0.14</td><td>0.41 ± 0.16</td></tr>
+              <tr><td>OSVI-AWDA</td><td>Motor-skill primitives needed for moving and picking</td><td>1.00 ± 0.00</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td></tr>
+              <tr class="group"><td colspan="6">Object-centric</td></tr>
+              <tr><td>CTOD-Policy</td><td>Conditioned-Object Detector on the target object</td><td>0.99 ± 0.03</td><td>0.95 ± 0.06</td><td>0.71 ± 0.22</td><td>0.00 ± 0.00</td></tr>
+              <tr><td>COD-Policy</td><td>Conditioned-Object Detector on the full set of target objects</td><td>1.00 ± 0.00</td><td>0.94 ± 0.11</td><td>0.93 ± 0.14</td><td>0.00 ± 0.00</td></tr>
+              <tr class="group"><td colspan="6">World-Action Model</td></tr>
+              <tr><td>VLA-JEPA</td><td>No task-specific prior</td><td>1.00 ± 0.00</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td></tr>
+              <tr><td>Mimic-Video</td><td>No task-specific prior</td><td>0.87 ± 0.10</td><td>0.68 ± 0.11</td><td>0.67 ± 0.11</td><td>0.00 ± 0.00</td></tr>
+              <tr class="group"><td colspan="6">VLA</td></tr>
+              <tr><td>OpenVLA-OFT</td><td>No task-specific prior</td><td>0.99 ± 0.02</td><td>0.99 ± 0.03</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td></tr>
+              <tr><td>TinyVLA-H</td><td>No task-specific prior</td><td>1.00 ± 0.00</td><td>0.97 ± 0.05</td><td>0.95 ± 0.06</td><td>0.00 ± 0.00</td></tr>
+              <tr><td>MolmoAct2</td><td>No task-specific prior</td><td>0.94 ± 0.09</td><td>0.84 ± 0.15</td><td>0.80 ± 0.13</td><td>0.00 ± 0.00</td></tr>
+              <tr><td>Interleave-VLA</td><td>Visual description of target objects</td><td>1.00 ± 0.00</td><td>0.96 ± 0.06</td><td>0.84 ± 0.18</td><td>0.00 ± 0.00</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">
-          MOSAIC mostly fails to identify the task-relevant object (W.O. 0.63), while the object-centric methods
-          eliminate wrong-object failures entirely. OSVI-AWDA and VLA-JEPA reach a perfect Success rate, and the VLA
-          family also performs strongly: every family can solve the task when training and evaluation configurations
-          match. The RQ1 evaluation below shows whether this holds out of distribution.
+          Values are computed per task variation over 10 runs and averaged over the 16 variations; ± is the standard
+          deviation across task variations. Within the end-to-end family, MOSAIC mostly fails to identify the
+          task-relevant object (W.O. 0.41 ± 0.16, Success 0.24 ± 0.14), while OSVI-AWDA, which relies on hand-crafted
+          motor primitives, reaches a perfect and fully consistent 1.00 ± 0.00. Among object-centric methods, COD-Policy
+          (conditioned on the full set of task objects) reaches 0.93 ± 0.14, whereas CTOD-Policy (target object only)
+          drops to a less consistent 0.71 ± 0.22: grounding <em>all</em> task-relevant objects is what makes
+          object-centric conditioning reliable. Among World-Action Models, VLA-JEPA is perfect while Mimic-Video reaches
+          0.67 ± 0.11, since it predicts future states in pixel space, a much harder problem than VLA-JEPA's latent
+          space. The VLA family is strong and consistent (0.80–0.98) with zero wrong-object failures. The RQ1 evaluation
+          below shows whether this holds out of distribution.
         </p>
 
         <h3 class="sub-head">RQ1-1: Task-level robustness</h3>
@@ -433,113 +363,21 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Cmd.</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">OSVI-AWDA</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.95</td>
-                <td>0.95</td>
-                <td>0.05</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">COD-Policy</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>0.93</td>
-                <td>0.90</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.05</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">OpenVLA-OFT †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td>0.95</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.99</td>
-                <td>0.98</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">TinyVLA-H †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.94</td>
-                <td>0.87</td>
-                <td>0.00</td>
-                <td>0.05</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.86</td>
-                <td>0.87</td>
-                <td>0.00</td>
-                <td>0.08</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">Interleave-VLA</td>
-                <td rowspan="2">Interl.</td>
-                <td class="setting">TD</td>
-                <td>0.93</td>
-                <td>0.84</td>
-                <td>0.00</td>
-                <td>0.09</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.92</td>
-                <td>0.78</td>
-                <td>0.00</td>
-                <td>0.15</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.95 ± 0.09</td><td>0.95 ± 0.09</td><td>0.05 ± 0.09</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.93 ± 0.09</td><td>0.91 ± 0.10</td><td>0.00 ± 0.00</td><td>0.03 ± 0.04</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.04 ± 0.05</td><td>0.04 ± 0.05</td><td>0.05 ± 0.02</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99 ± 0.03</td><td>0.96 ± 0.06</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.98 ± 0.03</td><td>0.98 ± 0.03</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.94 ± 0.05</td><td>0.87 ± 0.09</td><td>0.00 ± 0.00</td><td>0.05 ± 0.08</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.96 ± 0.01</td><td>0.87 ± 0.06</td><td>0.00 ± 0.00</td><td>0.08 ± 0.05</td></tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.93 ± 0.11</td><td>0.84 ± 0.16</td><td>0.00 ± 0.00</td><td>0.09 ± 0.16</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.92 ± 0.06</td><td>0.78 ± 0.19</td><td>0.00 ± 0.00</td><td>0.15 ± 0.15</td></tr>
             </tbody>
           </table>
         </div>
@@ -548,113 +386,21 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Cmd.</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">OSVI-AWDA</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.98</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">COD-Policy</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>0.90</td>
-                <td>0.90</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">OpenVLA-OFT †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.97</td>
-                <td>0.88</td>
-                <td>0.00</td>
-                <td>0.01</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.99</td>
-                <td>0.92</td>
-                <td>0.00</td>
-                <td>0.01</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">TinyVLA-H †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.86</td>
-                <td>0.77</td>
-                <td>0.00</td>
-                <td>0.08</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.77</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.97</td>
-                <td><b>0.97</b></td>
-                <td>0.02</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">Interleave-VLA</td>
-                <td rowspan="2">Interl.</td>
-                <td class="setting">TD</td>
-                <td>0.98</td>
-                <td>0.95</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.94</td>
-                <td>0.89</td>
-                <td>0.00</td>
-                <td>0.05</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.90 ± 0.15</td><td>0.90 ± 0.15</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td><td>0.13 ± 0.11</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.98 ± 0.04</td><td>0.88 ± 0.13</td><td>0.00 ± 0.00</td><td>0.02 ± 0.04</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.99 ± 0.01</td><td>0.93 ± 0.08</td><td>0.00 ± 0.00</td><td>0.01 ± 0.01</td></tr>
+              <tr class="td-row alt"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.86 ± 0.12</td><td>0.78 ± 0.12</td><td>0.00 ± 0.00</td><td>0.01 ± 0.03</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td><td>0.78 ± 0.11</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td>0.99 ± 0.03</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.98 ± 0.04</td><td><b>0.98 ± 0.04</b></td><td>0.03 ± 0.04</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.98 ± 0.04</td><td>0.95 ± 0.05</td><td>0.00 ± 0.00</td><td>0.03 ± 0.05</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.94 ± 0.04</td><td>0.89 ± 0.08</td><td>0.00 ± 0.00</td><td>0.05 ± 0.09</td></tr>
             </tbody>
           </table>
         </div>
@@ -662,12 +408,12 @@
           † Language-conditioned upper-bound references, conditioned on ground-truth instructions. Interl.:
           interleaved image-text instruction.</p>
         <p class="section-lead" style="margin-top:1rem;">
-          COD-Policy collapses out of distribution in both scenarios. In Scenario #2, OSVI-AWDA and TinyVLA-H show a
-          <strong>dangerous failure mode</strong>: instead of failing to reach the novel object, they actively grasp
-          and place the <em>wrong</em> one (W.O. 0.98 and 0.77), so the robot appears to act purposefully while
-          solving the wrong task. The broadly pre-trained models (VLA-JEPA, OpenVLA-OFT, Interleave-VLA) remain robust
-          across both scenarios: task-level robustness largely derives from large-scale pre-training rather than from
-          the architecture family.
+          COD-Policy collapses out of distribution in both scenarios (OTD Success 0.04 and 0.00). In Scenario #2,
+          OSVI-AWDA and TinyVLA-H show a <strong>dangerous failure mode</strong>: instead of failing to reach the novel
+          object, they actively grasp and place the <em>wrong</em> one (W.O. 0.98 ± 0.04 and 0.78 ± 0.11), so the robot
+          appears to act purposefully while solving the wrong task. The broadly pre-trained models remain robust across
+          both scenarios (VLA-JEPA 1.00 and 0.98, OpenVLA-OFT 0.98 and 0.93): task-level robustness largely derives from
+          large-scale pre-training rather than from the architecture family.
         </p>
 
         <h3 class="sub-head">RQ1-2: Spatial-level robustness</h3>
@@ -696,106 +442,29 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Cmd.</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">OSVI-AWDA</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td><b>0.99</b></td>
-                <td>0.01</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.49</td>
-                <td>0.49</td>
-                <td>0.39</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">OpenVLA-OFT †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td>0.97</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.98</td>
-                <td>0.81</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">TinyVLA-H †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.97</td>
-                <td>0.96</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.97</td>
-                <td>0.96</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">VLA-JEPA †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.98</td>
-                <td><b>0.97</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">Interleave-VLA</td>
-                <td rowspan="2">Interl.</td>
-                <td class="setting">TD</td>
-                <td>0.97</td>
-                <td>0.89</td>
-                <td>0.00</td>
-                <td>0.08</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.95</td>
-                <td>0.82</td>
-                <td>0.00</td>
-                <td>0.13</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99 ± 0.03</td><td><b>0.99 ± 0.03</b></td><td>0.01 ± 0.03</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.49 ± 0.38</td><td>0.49 ± 0.38</td><td>0.38 ± 0.31</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.96 ± 0.06</td><td>0.91 ± 0.10</td><td>0.01 ± 0.03</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.97 ± 0.07</td><td>0.91 ± 0.10</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.97 ± 0.06</td><td>0.95 ± 0.07</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.97 ± 0.05</td><td>0.96 ± 0.05</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99 ± 0.02</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.99 ± 0.03</td><td><b>0.98 ± 0.04</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.96 ± 0.06</td><td>0.86 ± 0.15</td><td>0.00 ± 0.00</td><td>0.10 ± 0.15</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.95 ± 0.05</td><td>0.84 ± 0.19</td><td>0.00 ± 0.00</td><td>0.11 ± 0.16</td></tr>
             </tbody>
           </table>
         </div>
         <p class="section-lead" style="margin-top:1rem;">
-          In TD all methods score high, with Interleave-VLA slightly behind (0.89). Out of distribution, OSVI-AWDA
-          collapses to 0.49 Success with a Wrong-Object rate of 0.39: its waypoint planner cannot recombine the
-          color-region association once the withheld region is tested. The language-conditioned models transfer this
-          recombination almost perfectly: TinyVLA-H is unaffected (0.96), VLA-JEPA drops marginally to 0.97,
-          OpenVLA-OFT to 0.81, and Interleave-VLA to 0.82, with a slightly higher Wrong-Bin rate (0.13).
+          In TD all methods score high, with Interleave-VLA slightly behind (0.86 ± 0.15). Out of distribution, OSVI-AWDA
+          collapses to 0.49 ± 0.38 Success with a Wrong-Object rate of 0.38 ± 0.31: its waypoint planner cannot recombine
+          the color-region association once the withheld region is tested. The language-conditioned models transfer this
+          recombination almost perfectly: VLA-JEPA shows no degradation at all (0.98 ± 0.04), TinyVLA-H is essentially
+          unaffected (0.96 ± 0.05), and OpenVLA-OFT holds at 0.91 ± 0.10. Interleave-VLA declines slightly to
+          0.84 ± 0.19, with a Wrong-Bin rate of 0.11 ± 0.16.
         </p>
 
         <h4 class="minor-head">Scenario #2: unseen position</h4>
@@ -816,107 +485,31 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Cmd.</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Cmd.</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">OSVI-AWDA</td>
-                <td rowspan="2">Video</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td><b>0.99</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.30</td>
-                <td>0.30</td>
-                <td>0.49</td>
-                <td>0.49</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">OpenVLA-OFT †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.95</td>
-                <td>0.71</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.49</td>
-                <td>0.37</td>
-                <td>0.02</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">TinyVLA-H †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.87</td>
-                <td>0.86</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.01</td>
-                <td>0.01</td>
-                <td>0.47</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">VLA-JEPA †</td>
-                <td rowspan="2">Lang.</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td><b>0.99</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.32</td>
-                <td>0.31</td>
-                <td>0.37</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">Interleave-VLA</td>
-                <td rowspan="2">Interl.</td>
-                <td class="setting">TD</td>
-                <td>0.89</td>
-                <td>0.86</td>
-                <td>0.00</td>
-                <td>0.03</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.92</td>
-                <td><b>0.77</b></td>
-                <td>0.00</td>
-                <td>0.12</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td rowspan="2">Video</td><td class="setting">TD</td><td>0.99 ± 0.03</td><td><b>0.99 ± 0.03</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.30 ± 0.24</td><td>0.30 ± 0.24</td><td>0.49 ± 0.24</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">OpenVLA-OFT †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.94 ± 0.06</td><td>0.70 ± 0.25</td><td>0.00 ± 0.00</td><td>0.01 ± 0.02</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.51 ± 0.16</td><td>0.36 ± 0.19</td><td>0.03 ± 0.06</td><td>0.01 ± 0.02</td></tr>
+              <tr class="td-row"><td rowspan="2">TinyVLA-H †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.87 ± 0.11</td><td>0.86 ± 0.11</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.01 ± 0.03</td><td>0.01 ± 0.03</td><td>0.48 ± 0.16</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">VLA-JEPA †</td><td rowspan="2">Lang.</td><td class="setting">TD</td><td>0.99 ± 0.02</td><td><b>0.99 ± 0.03</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.33 ± 0.30</td><td>0.31 ± 0.28</td><td>0.38 ± 0.27</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">Interleave-VLA</td><td rowspan="2">Interl.</td><td class="setting">TD</td><td>0.90 ± 0.08</td><td>0.84 ± 0.12</td><td>0.00 ± 0.00</td><td>0.06 ± 0.10</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.92 ± 0.12</td><td><b>0.79 ± 0.22</b></td><td>0.00 ± 0.00</td><td>0.11 ± 0.20</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">† Language-conditioned upper-bound references, conditioned on ground-truth instructions.
           Interl.: interleaved image-text instruction.</p>
         <p class="section-lead" style="margin-top:1rem;">
-          Scenario #2 is substantially harder for every method. OSVI-AWDA drops to 0.30, with balanced Wrong-Object and
-          Wrong-Bin errors (0.49 each), a complete breakdown of both object and bin identification. TinyVLA-H collapses
-          to 0.01 (Wrong-Object 0.47), while VLA-JEPA and OpenVLA-OFT fall to 0.31 and 0.37. <strong>Interleave-VLA is
-            the most robust baseline here</strong>, keeping 0.77 Success with no wrong-object errors.
+          Scenario #2 is substantially harder for every method. OSVI-AWDA drops to 0.30 ± 0.24, driven entirely by a
+          Wrong-Object rate of 0.49 ± 0.24 with no Wrong-Bin errors: a breakdown of object identification when the target
+          lies outside every known spawn region. TinyVLA-H collapses to 0.01 ± 0.03 (W.O. 0.48 ± 0.16), while VLA-JEPA and
+          OpenVLA-OFT fall to 0.31 ± 0.28 and 0.36 ± 0.19. <strong>Interleave-VLA is the most robust baseline
+          here</strong>, keeping 0.79 ± 0.22 with no wrong-object errors, mainly thanks to its interleaved image-text
+          instruction, which gives the model extra visual context to localize the object in an unseen position.
         </p>
         <p class="section-lead">
           Recombining known spatial concepts (Scenario #1) is therefore handled well by large-scale pre-training, but
@@ -937,12 +530,17 @@
           <p class="eyebrow" style="margin-top:0.8rem;">3 · Proposal</p>
           <h2 class="section-title">VC-VLA: Video-Conditioned Vision-Language-Action</h2>
           <p class="section-lead">
-            Framed as <em>one-shot visual imitation</em>, our setting asks the robot to execute a novel task instance
-            from a <em>single</em> unstructured human video, with no paired action labels or kinematic data. Following
-            the insight that one-shot visual imitation benefits from <strong>separating task inference (what to do)
-              from task execution (how to do it)</strong>, VC-VLA extends language-conditioned policies to the
-            human-video-conditioned setting.
-          </p>
+          The baselines show that the language-conditioned VLA and WAM families achieve the strongest in-distribution
+          performance and the most robust behavior under distribution shift, without the object- or scene-specific priors
+          that make object-centric and motor-primitive methods brittle. This robustness, however, requires an explicit
+          <em>textual instruction</em>. In <em>one-shot visual imitation</em>, the robot is given only a
+          <em>single</em> unstructured human video, with no action labels, segmentation, or language annotation. Hence the
+          central question of the proposal: <strong>can the robustness of large-scale language-conditioned policies be
+          made available when the only source of task information is a raw video, without manually authoring the
+          instruction?</strong> Following the insight that one-shot visual imitation benefits from <strong>separating task
+          inference (what to do) from task execution (how to do it)</strong>, VC-VLA extends language-conditioned policies
+          to the human-video-conditioned setting.
+        </p>
         </div>
 
         <div class="figure-card">
@@ -954,11 +552,13 @@
             design needs no manual segmentation, task annotation, or kinematic alignment.</p>
         </div>
         <p class="section-lead mt-2">
-          If the task-inference module identifies the demonstrated task correctly, the downstream policy can reuse
-          knowledge acquired from broad robotic datasets to solve novel task instances. The compositional structure of
-          the generated instruction and the grounding capabilities of the VLA play the role that attributed waypoints
-          and motor primitives play in classical one-shot visual imitation, keeping the system focused on the
-          <em>task</em> rather than the <em>task context</em> seen in training.
+          If the task-inference module identifies the demonstrated task correctly, the downstream VLA can reuse the
+          robustness acquired from broad robotic pre-training to solve novel task instances, precisely the capability
+          that motivated this design. The compositional structure of the generated instruction and the grounding
+          capabilities of the VLA play the role that attributed waypoints and motor primitives play in classical one-shot
+          visual imitation, keeping the system focused on the <em>task</em> rather than the <em>task context</em> seen in
+          training. The design also localizes the pipeline's residual errors within the task-inference module, keeping
+          them separable from the robustness of the task-execution module.
         </p>
 
         <h3 class="sub-head">Task inference: video-captioning module</h3>
@@ -1011,6 +611,13 @@
           third as fourth). Bin accuracy barely changes when the prompt is made scene-agnostic (0.91 → 0.90), so
           hand-crafted scene priors are not required for reliable task inference.
         </p>
+        <div class="figure-card mt-2">
+          <img src="static/images/main-project/cosmos-reason-v2-out.jpg" alt="Examples of Cosmos-Reason V2 captions"
+            loading="lazy">
+          <p class="figure-cap">Examples of Cosmos-Reason V2 outputs with the strong a-priori prompt. The model always
+            identifies the color of the object to manipulate, but occasionally misidentifies the target bin,
+            particularly when bins are spatially adjacent (caption in red).</p>
+        </div>
       </div>
     </section>
 
@@ -1035,219 +642,60 @@
         <div class="table-wrap">
           <table class="data-table">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Reach</th>
-                <th>Pick</th>
-                <th>Success</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Reach</th><th>Pick</th><th>Success</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>OpenVLA-OFT</td>
-                <td>0.99</td>
-                <td>0.99</td>
-                <td>0.97</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="proposed">
-                <td>Cosmos + OpenVLA-OFT</td>
-                <td>0.99</td>
-                <td>0.99</td>
-                <td>0.88</td>
-                <td>0.09</td>
-              </tr>
-              <tr>
-                <td>TinyVLA-H</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.96</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="proposed">
-                <td>Cosmos + TinyVLA-H</td>
-                <td>1.00</td>
-                <td>0.96</td>
-                <td>0.83</td>
-                <td>0.12</td>
-              </tr>
-              <tr>
-                <td>VLA-JEPA</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-              </tr>
-              <tr class="proposed">
-                <td>Cosmos + VLA-JEPA</td>
-                <td>0.99</td>
-                <td>0.99</td>
-                <td><b>0.90</b></td>
-                <td>0.10</td>
-              </tr>
+              <tr><td>OpenVLA-OFT</td><td>0.99 ± 0.02</td><td>0.99 ± 0.03</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed"><td>Cosmos + OpenVLA-OFT</td><td>0.99 ± 0.02</td><td>0.99 ± 0.03</td><td>0.88 ± 0.14</td><td>0.09 ± 0.14</td></tr>
+              <tr><td>TinyVLA-H</td><td>1.00 ± 0.00</td><td>0.97 ± 0.05</td><td>0.95 ± 0.06</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed"><td>Cosmos + TinyVLA-H</td><td>1.00 ± 0.00</td><td>0.96 ± 0.06</td><td>0.84 ± 0.17</td><td>0.12 ± 0.18</td></tr>
+              <tr><td>VLA-JEPA</td><td>1.00 ± 0.00</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed"><td>Cosmos + VLA-JEPA</td><td>0.99 ± 0.02</td><td>0.99 ± 0.02</td><td><b>0.89 ± 0.17</b></td><td>0.11 ± 0.17</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">
-          For every backbone, the Success drop introduced by VC-VLA is entirely explained by the Wrong-Bin rate, with
-          no extra wrong-object failures: captioning ambiguity is confined to target-bin identification. VC-VLA is
-          therefore backbone-agnostic, and improving bin identification in the captioning module is the most direct
-          way to close the remaining gap. The MolmoAct2 integration is under evaluation.
+          Values are mean ± standard deviation across the 16 task variations. For every backbone, the Success drop
+          introduced by VC-VLA (OpenVLA-OFT 0.98 → 0.88, TinyVLA-H 0.95 → 0.84, VLA-JEPA 1.00 → 0.89) is entirely explained
+          by the Wrong-Bin rate, with no extra wrong-object failures: captioning ambiguity is confined to target-bin
+          identification. VC-VLA is therefore backbone-agnostic, and the gap to the best object-centric baseline
+          (COD-Policy, 0.93 ± 0.14) comes from captioning errors rather than from the control policy. Improving bin
+          identification in the captioning module is the most direct way to close it.
         </p>
 
         <h3 class="sub-head">RQ1-1: Task-level robustness</h3>
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Pipeline</th>
-                <th>Scenario</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA † (reference)</td>
-                <td rowspan="2">#1 task combo</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">Cosmos + OpenVLA-OFT</td>
-                <td rowspan="2">#1 task combo</td>
-                <td class="setting">TD</td>
-                <td>0.98</td>
-                <td>0.86</td>
-                <td>0.00</td>
-                <td>0.07</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.99</td>
-                <td>0.90</td>
-                <td>0.00</td>
-                <td>0.08</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">Cosmos + TinyVLA-H</td>
-                <td rowspan="2">#1 task combo</td>
-                <td class="setting">TD</td>
-                <td>0.96</td>
-                <td>0.75</td>
-                <td>0.00</td>
-                <td>0.14</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.92</td>
-                <td>0.74</td>
-                <td>0.00</td>
-                <td>0.18</td>
-              </tr>
-              <tr class="proposed td-row alt">
-                <td rowspan="2">Cosmos + VLA-JEPA</td>
-                <td rowspan="2">#1 task combo</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>0.88</b></td>
-                <td>0.00</td>
-                <td>0.11</td>
-              </tr>
-              <tr class="proposed otd-row alt">
-                <td class="setting">OTD</td>
-                <td>1.00</td>
-                <td><b>0.93</b></td>
-                <td>0.00</td>
-                <td>0.06</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA † (reference)</td>
-                <td rowspan="2">#2 novel object</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>1.00</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.97</td>
-                <td>0.97</td>
-                <td>0.02</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">Cosmos + OpenVLA-OFT</td>
-                <td rowspan="2">#2 novel object</td>
-                <td class="setting">TD</td>
-                <td>0.97</td>
-                <td>0.82</td>
-                <td>0.00</td>
-                <td>0.07</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.98</td>
-                <td>0.80</td>
-                <td>0.00</td>
-                <td>0.08</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">Cosmos + TinyVLA-H</td>
-                <td rowspan="2">#2 novel object</td>
-                <td class="setting">TD</td>
-                <td>0.85</td>
-                <td>0.73</td>
-                <td>0.00</td>
-                <td>0.10</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.00</td>
-                <td>0.00</td>
-                <td>0.65</td>
-                <td>0.07</td>
-              </tr>
-              <tr class="proposed td-row alt">
-                <td rowspan="2">Cosmos + VLA-JEPA</td>
-                <td rowspan="2">#2 novel object</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>0.88</b></td>
-                <td>0.00</td>
-                <td>0.12</td>
-              </tr>
-              <tr class="proposed otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.99</td>
-                <td><b>0.91</b></td>
-                <td>0.02</td>
-                <td>0.08</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>1.00 ± 0.00</td><td>1.00 ± 0.00</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + OpenVLA-OFT</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>0.98 ± 0.04</td><td>0.87 ± 0.15</td><td>0.00 ± 0.00</td><td>0.08 ± 0.14</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.98 ± 0.03</td><td>0.91 ± 0.10</td><td>0.00 ± 0.00</td><td>0.07 ± 0.10</td></tr>
+              <tr class="proposed td-row"><td rowspan="2">Cosmos + TinyVLA-H</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>0.96 ± 0.06</td><td>0.76 ± 0.21</td><td>0.00 ± 0.00</td><td>0.14 ± 0.19</td></tr>
+              <tr class="proposed otd-row"><td class="setting">OTD</td><td>0.93 ± 0.03</td><td>0.74 ± 0.16</td><td>0.00 ± 0.00</td><td>0.18 ± 0.18</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#1 task combo</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>0.88 ± 0.15</b></td><td>0.00 ± 0.00</td><td>0.11 ± 0.15</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>1.00 ± 0.00</td><td><b>0.93 ± 0.12</b></td><td>0.00 ± 0.00</td><td>0.07 ± 0.12</td></tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td>0.99 ± 0.03</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.98 ± 0.04</td><td>0.98 ± 0.04</td><td>0.03 ± 0.04</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + OpenVLA-OFT</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>0.98 ± 0.04</td><td>0.83 ± 0.16</td><td>0.00 ± 0.00</td><td>0.08 ± 0.08</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.98 ± 0.02</td><td>0.81 ± 0.14</td><td>0.00 ± 0.00</td><td>0.08 ± 0.14</td></tr>
+              <tr class="proposed td-row"><td rowspan="2">Cosmos + TinyVLA-H</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>0.85 ± 0.09</td><td>0.73 ± 0.18</td><td>0.00 ± 0.00</td><td>0.10 ± 0.16</td></tr>
+              <tr class="proposed otd-row"><td class="setting">OTD</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td><td>0.65 ± 0.21</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#2 novel object</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>0.88 ± 0.17</b></td><td>0.00 ± 0.00</td><td>0.12 ± 0.17</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.99 ± 0.01</td><td>0.91 ± 0.16</td><td>0.01 ± 0.01</td><td>0.08 ± 0.13</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">
-          All three pipelines keep strong OTD performance on novel task configurations (0.74–0.93) with zero
-          wrong-object errors, so VC-VLA carries language-conditioned robustness over to the human-video-conditioned
-          setting. On novel objects, Cosmos + VLA-JEPA stays robust (0.91), while Cosmos + TinyVLA-H inherits
-          TinyVLA-H's own wrong-object failure (W.O. 0.65): the bottleneck there lies in the action module, not in task
-          inference. The best pipeline is <strong>Cosmos + VLA-JEPA</strong>.
+          All three pipelines keep strong OTD performance on novel task configurations (Cosmos + VLA-JEPA 0.93 ± 0.12,
+          Cosmos + OpenVLA-OFT 0.91 ± 0.10, Cosmos + TinyVLA-H 0.74 ± 0.16) with zero wrong-object errors, so VC-VLA carries
+          language-conditioned robustness over to the human-video-conditioned setting. On novel objects, Cosmos + VLA-JEPA
+          stays robust (0.91 ± 0.16, W.O. only 0.01), while Cosmos + TinyVLA-H inherits TinyVLA-H's own wrong-object
+          failure (W.O. 0.65 ± 0.21): the bottleneck there lies in the action module, not in task inference. The best
+          pipeline is <strong>Cosmos + VLA-JEPA</strong>.
         </p>
 
         <h3 class="sub-head">RQ1-2: Spatial-level robustness</h3>
@@ -1255,81 +703,17 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Pipeline</th>
-                <th>Scenario</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Pipeline</th><th>Scenario</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA † (reference)</td>
-                <td rowspan="2">#1 known region</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>0.98</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.98</td>
-                <td>0.97</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="proposed td-row alt">
-                <td rowspan="2">Cosmos + VLA-JEPA</td>
-                <td rowspan="2">#1 known region</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td>0.79</td>
-                <td>0.00</td>
-                <td>0.20</td>
-              </tr>
-              <tr class="proposed otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.99</td>
-                <td>0.79</td>
-                <td>0.00</td>
-                <td>0.20</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA † (reference)</td>
-                <td rowspan="2">#2 unseen position</td>
-                <td class="setting">TD</td>
-                <td>0.99</td>
-                <td>0.99</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.32</td>
-                <td>0.31</td>
-                <td>0.37</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="proposed td-row alt">
-                <td rowspan="2">Cosmos + VLA-JEPA</td>
-                <td rowspan="2">#2 unseen position</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td>0.79</td>
-                <td>0.00</td>
-                <td>0.20</td>
-              </tr>
-              <tr class="proposed otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.34</td>
-                <td>0.26</td>
-                <td>0.31</td>
-                <td>0.07</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>0.99 ± 0.02</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.99 ± 0.03</td><td>0.98 ± 0.04</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#1 known region</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>0.80 ± 0.21</b></td><td>0.00 ± 0.00</td><td>0.19 ± 0.21</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.99 ± 0.02</td><td><b>0.80 ± 0.21</b></td><td>0.00 ± 0.00</td><td>0.19 ± 0.21</td></tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA † (reference)</td><td rowspan="2">#2 unseen position</td><td class="setting">TD</td><td>0.99 ± 0.02</td><td>0.99 ± 0.03</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.33 ± 0.30</td><td>0.31 ± 0.28</td><td>0.38 ± 0.27</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA</td><td rowspan="2">#2 unseen position</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>0.80 ± 0.22</b></td><td>0.00 ± 0.00</td><td>0.20 ± 0.22</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.33 ± 0.31</td><td>0.28 ± 0.28</td><td>0.31 ± 0.25</td><td>0.06 ± 0.11</td></tr>
             </tbody>
           </table>
         </div>
@@ -1337,15 +721,16 @@
           † Language-conditioned upper bound (ground-truth instruction), shown for reference.
         </p>
         <p class="section-lead" style="margin-top:1rem;">
-          In Scenario #1, Cosmos + VLA-JEPA reaches 0.79 Success in both TD and OTD, with an unchanged Wrong-Bin rate
-          of 0.20: <strong>zero degradation</strong> between TD and OTD. Its residual errors come entirely from the
-          captioning module, and the underlying policy is fully robust to this form of spatial recombination.
+          In Scenario #1, Cosmos + VLA-JEPA reaches 0.80 ± 0.21 Success in both TD and OTD, with an unchanged Wrong-Bin
+          rate of 0.19 ± 0.21: <strong>zero degradation</strong> between TD and OTD. Its residual errors come entirely from
+          the captioning module, and the underlying policy is fully robust to this form of spatial recombination.
         </p>
         <p class="section-lead">
-          In Scenario #2 the pipeline mirrors the single-model collapse, falling from 0.79 to 0.26 (Wrong-Object 0.31,
-          Wrong-Bin 0.07). Once the target lies outside the training distribution, the failure mode shifts from the
-          captioning module to the policy itself: video-based conditioning inherits the robustness of its backbone
-          to spatial recombination, but not yet to spatial extrapolation.
+          In Scenario #2 the pipeline mirrors the single-model collapse, falling from 0.80 ± 0.22 to 0.28 ± 0.28
+          (Wrong-Object 0.31 ± 0.25, Wrong-Bin 0.06 ± 0.11). Once the target lies outside the training distribution, the
+          failure mode shifts from the captioning module to the policy itself: large-scale pre-training and video-based
+          conditioning are enough to recombine known spatial concepts, but not yet to extrapolate beyond the spatial
+          configurations covered in training.
         </p>
       </div>
     </section>
@@ -1408,101 +793,32 @@
         <div class="table-wrap">
           <table class="data-table tdotd">
             <thead>
-              <tr>
-                <th>Model</th>
-                <th>Setting</th>
-                <th>P.</th>
-                <th>S.</th>
-                <th>W.O.</th>
-                <th>W.B.</th>
-              </tr>
+              <tr><th>Model</th><th>Setting</th><th>P.</th><th>S.</th><th>W.O.</th><th>W.B.</th></tr>
             </thead>
             <tbody>
-              <tr class="td-row">
-                <td rowspan="2">SeeDo (non-learning)</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">COD-Policy</td>
-                <td class="setting">TD</td>
-                <td>0.62</td>
-                <td>0.52</td>
-                <td>0.00</td>
-                <td>0.10</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.19</td>
-                <td>0.06</td>
-                <td>0.00</td>
-                <td>0.13</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">OSVI-AWDA</td>
-                <td class="setting">TD</td>
-                <td>1.00</td>
-                <td><b>1.00</b></td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.75</td>
-                <td>0.75</td>
-                <td>0.15</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="td-row alt">
-                <td rowspan="2">Interleave-VLA</td>
-                <td class="setting">TD</td>
-                <td>0.75</td>
-                <td>0.67</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row alt">
-                <td class="setting">OTD</td>
-                <td>0.75</td>
-                <td>0.62</td>
-                <td>0.00</td>
-                <td>0.06</td>
-              </tr>
-              <tr class="td-row">
-                <td rowspan="2">VLA-JEPA</td>
-                <td class="setting">TD</td>
-                <td>0.67</td>
-                <td>0.67</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
-              <tr class="otd-row">
-                <td class="setting">OTD</td>
-                <td>0.81</td>
-                <td>0.75</td>
-                <td>0.00</td>
-                <td>0.00</td>
-              </tr>
+              <tr class="td-row"><td rowspan="2">SeeDo (non-learning)</td><td class="setting">TD</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>1.00 ± 0.00</td><td><b>1.00 ± 0.00</b></td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">COD-Policy</td><td class="setting">TD</td><td>0.62 ± 0.11</td><td>0.51 ± 0.22</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.19 ± 0.21</td><td>0.06 ± 0.11</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">OSVI-AWDA</td><td class="setting">TD</td><td>0.98 ± 0.07</td><td>0.98 ± 0.07</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.75 ± 0.43</td><td>0.75 ± 0.43</td><td>0.12 ± 0.22</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row alt"><td rowspan="2">Interleave-VLA</td><td class="setting">TD</td><td>0.75 ± 0.20</td><td>0.67 ± 0.29</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row alt"><td class="setting">OTD</td><td>0.75 ± 0.18</td><td>0.62 ± 0.38</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="td-row"><td rowspan="2">VLA-JEPA</td><td class="setting">TD</td><td>0.68 ± 0.21</td><td>0.68 ± 0.21</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="otd-row"><td class="setting">OTD</td><td>0.81 ± 0.11</td><td>0.75 ± 0.18</td><td>0.00 ± 0.00</td><td>0.00 ± 0.00</td></tr>
+              <tr class="proposed td-row alt"><td rowspan="2">Cosmos + VLA-JEPA (VC-VLA)</td><td class="setting">TD</td><td>0.85 ± 0.13</td><td>0.65 ± 0.31</td><td>0.00 ± 0.00</td><td>0.12 ± 0.28</td></tr>
+              <tr class="proposed otd-row alt"><td class="setting">OTD</td><td>0.85 ± 0.15</td><td>0.69 ± 0.24</td><td>0.00 ± 0.00</td><td>0.08 ± 0.14</td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">TD: 48 trajectories (4 runs × 12 task variations); OTD: 16 trajectories (4 runs × 4 task
           variations).</p>
         <p class="section-lead" style="margin-top:1rem;">
-          The best-performing baselines are the two methods built on hand-crafted heuristics, SeeDo and OSVI-AWDA,
-          which transfer to the real robot almost without degradation. Fully data-driven methods (COD-Policy,
-          Interleave-VLA, VLA-JEPA) show a pronounced sim-to-real gap: VLA-JEPA drops to 0.67 TD / 0.75 OTD Success
-          against 0.98 / 0.97 in simulation.
+          Values are mean ± standard deviation across task variations (12 TD and 4 OTD, 4 real-robot trajectories each).
+          The best-performing baselines are the two methods built on hand-crafted heuristics: SeeDo is perfect in TD and
+          OTD (1.00 ± 0.00), and OSVI-AWDA reaches 0.98 ± 0.07 in TD and 0.75 ± 0.43 in OTD. Fully data-driven methods
+          (COD-Policy, Interleave-VLA, VLA-JEPA) show a pronounced sim-to-real gap: VLA-JEPA drops to 0.68 ± 0.21 TD and
+          0.75 ± 0.18 OTD Success, against 0.99 ± 0.03 and 0.98 ± 0.04 in simulation.
         </p>
         <div class="figure-grid cols-2">
           <div class="figure-card">
@@ -1627,7 +943,7 @@
                 <td>1.00</td>
                 <td>1.00</td>
                 <td>1.00</td>
-                <td>0.00</td>
+                <td>0.33</td>
                 <td>0.00</td>
               </tr>
               <tr>
@@ -1643,11 +959,12 @@
           </table>
         </div>
         <p class="table-note">
-          Prompt tuning raises peg localization from 0.00 to 1.00, yet nut-assembly success stays at 0.00: the
-          remaining gap lies in the grasping and manipulation strategy, which lacks object-specific knowledge such as
-          the peg's pose and thread alignment. Adapting SeeDo to a new task therefore costs a round of prompt tuning
-          <em>plus</em> a separate, still unresolved, adaptation of the motor-primitive library, a cost that a learned
-          pipeline such as VC-VLA is designed to absorb from data.
+          With the generalized prompt, the peg is localized in only 1 case out of 3 (0.33). Prompt tuning raises peg
+          localization to 1.00, yet nut-assembly success stays at 0.00: the remaining gap lies in the grasping and
+          manipulation strategy, which lacks object-specific knowledge such as the peg's pose and thread alignment.
+          Adapting SeeDo to a new task therefore costs a round of prompt tuning <em>plus</em> a separate, still unresolved,
+          adaptation of the motor-primitive library, a cost that a learned pipeline such as VC-VLA is designed to absorb
+          from data.
         </p>
 
         <h3 class="sub-head">SeeDo: calibration sensitivity</h3>
@@ -1713,12 +1030,94 @@
           on a hand-crafted extrinsic calibration.
         </p>
 
-        <h3 class="sub-head">VC-VLA in the real world <span class="status-badge"><i class="fas fa-circle-notch"></i> In
-            progress</span></h3>
+        <h3 class="sub-head">VC-VLA in the real world <span class="status-badge"><i class="fas fa-circle-notch"></i> Preliminary</span></h3>
         <p class="section-lead">
-          The real-world evaluation of the proposed pipeline (Cosmos-Reason V2 + VLA-JEPA) reuses the train and test
-          task configurations of RQ1-1 Scenario #1, now instantiated on the real UR5e with the teleoperated dataset
-          described above. Results will be added once the real-robot rollouts are completed.
+          The real-world baseline table above also reports the proposed pipeline (Cosmos-Reason V2 + VLA-JEPA), evaluated
+          on the same train and test task configurations as RQ1-1 Scenario #1. In TD it reaches 0.65 ± 0.31 Success,
+          below every baseline except COD-Policy, including its own VLA-JEPA backbone (0.68 ± 0.21). This mirrors
+          simulation, where the pipeline also trails its backbone (0.88 vs 0.98) because of captioning-induced wrong bins
+          (W.B. 0.12 ± 0.28 here, 0.11 ± 0.15 in simulation).
+        </p>
+        <p class="section-lead">
+          In OTD the pipeline reaches 0.69 ± 0.24, higher than in TD and higher than Interleave-VLA (0.62 ± 0.38) and
+          COD-Policy (0.06 ± 0.11), though still below SeeDo, OSVI-AWDA and VLA-JEPA (0.75–1.00). These
+          <strong>preliminary results</strong> are more mixed than in simulation: the residual captioning errors
+          compound with, rather than replace, the sim-to-real limits that already affect VLA-JEPA itself. Closing this
+          gap is a direction for future work, through a better captioning module or by feeding the demonstration video
+          directly into the VLA backbone.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ============ 6. CONCLUSION AND FUTURE WORK ============ -->
+    <section class="section-shell alt" id="conclusion">
+      <div class="section-inner">
+        <div class="section-header">
+          <p class="eyebrow">6 · Conclusion and Future Work</p>
+          <h2 class="section-title">A priori knowledge and the learning-robustness trade-off</h2>
+          <p class="section-lead">
+            Across the taxonomy, the simulated RQ1 evaluation and the real-world campaign, the results consistently
+            point to a trade-off between how much a priori knowledge a method needs to model the manipulation problem
+            and the kind of distribution shift its robustness actually covers.
+          </p>
+        </div>
+
+        <div class="figure-grid cols-3 conclusion-grid">
+          <div class="figure-card">
+            <div class="figure-cap">
+              <span class="figure-tag">Engineered priors</span>
+              <p class="figure-title">SeeDo, OSVI-AWDA</p>
+              <p class="figure-desc">Need an accurately calibrated camera, a known target-object class and, for
+                OSVI-AWDA, a hand-crafted free-space / grasp / carry / drop decomposition. They excel on the real robot
+                (TD 1.00 and 0.98, OTD 1.00 and 0.75) but fail as soon as an assumption is violated: OSVI-AWDA reaches
+                W.O. 0.98 on novel objects and collapses to 0.49–0.30 on RQ1-2.</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="figure-cap">
+              <span class="figure-tag">Learned priors</span>
+              <p class="figure-title">OpenVLA-OFT, TinyVLA-H, VLA-JEPA</p>
+              <p class="figure-desc">Replace calibration and object enumeration with priors from large-scale
+                pre-training, which makes them robust in simulation to RQ1-1 and to RQ1-2 Scenario #1 (VLA-JEPA
+                0.98–1.00 OTD). Two limits remain: no spatial extrapolation (VLA-JEPA 0.31 in RQ1-2 Scenario #2) and a
+                partial sim-to-real transfer (0.68 real vs 0.99 simulated TD Success).</p>
+            </div>
+          </div>
+          <div class="figure-card">
+            <div class="figure-cap">
+              <span class="figure-tag is-video">Proposed</span>
+              <p class="figure-title">VC-VLA</p>
+              <p class="figure-desc">Sits in between: it replaces the ambiguous textual prompt with a caption generated
+                from the human video, inherits its backbone's robustness profile, and confines its own errors to a
+                separable task-inference module that can be improved independently.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="section-lead">
+          The amount of a priori knowledge therefore trades off two distinct failure modes rather than overall
+          performance: <strong>engineered priors</strong> rely on strong assumptions about the task and the
+          environment and fail catastrophically when these are violated; <strong>learned priors</strong> need no such
+          assumptions, but their robustness is bounded by the tasks and spatial configurations seen in training and
+          they are sensitive to sim-to-real shift. By decoupling task inference from action generation, VC-VLA offers
+          a path toward combining the strengths of both.
+        </p>
+
+        <h3 class="sub-head">Future work</h3>
+        <p class="section-lead">
+          <strong>1. A broader real-world campaign.</strong> More trajectories will be collected for every baseline, to
+          make the current estimates (48 TD and 16 OTD trajectories) more reliable, and the real-world protocol will be
+          extended to the RQ1-2 spatial-level axis, so far evaluated only in simulation.
+        </p>
+        <p class="section-lead">
+          <strong>2. End-to-end video conditioning.</strong> The analysis of the demonstration video will be
+          integrated directly into the VLA's control pipeline, conditioning the policy on video embeddings of the human
+          demonstration instead of an intermediate caption. This removes the captioning step, its residual
+          bin-identification errors, and the intrinsic ambiguity of the textual prompt, leading to a fully end-to-end,
+          human-video-conditioned architecture that combines the robustness of large-scale pre-trained VLAs and WAMs
+          with the flexibility of direct video conditioning.
         </p>
       </div>
     </section>
